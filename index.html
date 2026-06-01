@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مکانیزم لولای هوشمند همزمان | Bus-Door Cabinet Hinge</title>
     <style>
-        /* بازنشانی و فونت‌های پایه */
         @import url('https://v1.fontapi.ir/dastnevis/vazir.css');
 
         * {
@@ -88,7 +87,7 @@
             background-color: #0f766e;
         }
 
-        /* هدر و منو */
+        /* هدر و منو جدید */
         header {
             background-color: var(--primary-color);
             color: var(--white);
@@ -122,7 +121,7 @@
         }
 
         nav ul li {
-            margin-right: 20px;
+            margin-right: 25px;
         }
 
         nav ul li a {
@@ -133,7 +132,7 @@
         }
 
         nav ul li a:hover {
-            color: #93c5fd;
+            color: #38bdf8;
         }
 
         /* بخش هیرو */
@@ -166,6 +165,21 @@
             color: #cbd5e1;
         }
 
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--secondary-color);
+            color: var(--white);
+        }
+
+        .btn-outline:hover {
+            background: var(--secondary-color);
+        }
+
         .hero-visual {
             flex: 1;
             display: flex;
@@ -196,110 +210,6 @@
         @keyframes busDoorMove {
             0%, 100% { transform: rotateY(0deg) translateX(0px); }
             50% { transform: rotateY(-45deg) translateX(-60px); opacity: 0.8; }
-        }
-
-        /* بیان مسئله */
-        .grid-2 {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 30px;
-        }
-
-        @media (min-width: 768px) {
-            .grid-2 { grid-template-columns: 1fr 1fr; }
-        }
-
-        .card {
-            background: var(--white);
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
-
-        .card h3 {
-            margin-bottom: 15px;
-            color: var(--primary-color);
-        }
-
-        /* کاتالوگ و گالری */
-        .visual-gallery {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 30px;
-            margin-bottom: 50px;
-        }
-
-        @media (min-width: 768px) {
-            .visual-gallery { grid-template-columns: 1fr 1fr; }
-        }
-
-        .gallery-item {
-            background: var(--white);
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            text-align: center;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: auto;
-            max-height: 400px;
-            object-fit: contain;
-            border-radius: 6px;
-        }
-
-        .image-caption {
-            margin-top: 12px;
-            font-size: 0.9rem;
-            color: #4b5563;
-            font-weight: 500;
-        }
-
-        .catalog-details-block {
-            background-color: var(--light-color);
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
-        }
-
-        .catalog-details-block h3 {
-            color: var(--primary-color);
-            margin-bottom: 25px;
-        }
-
-        .catalog-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 40px;
-        }
-
-        @media (min-width: 768px) {
-            .catalog-grid { grid-template-columns: 1.2fr 0.8fr; }
-        }
-
-        .tech-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 25px;
-        }
-
-        .tech-table td {
-            padding: 12px;
-            border-bottom: 1px solid #e5e7eb;
-        }
-
-        .features-list h4 {
-            margin-bottom: 10px;
-            color: var(--secondary-color);
-        }
-
-        .features-list ul {
-            padding-right: 20px;
-        }
-
-        .features-list ul li {
-            margin-bottom: 8px;
         }
 
         /* تیم و کارت ویزیت هوشمند */
@@ -375,7 +285,7 @@
             font-weight: bold;
         }
 
-        /* بخش رنگ‌بندی جدید و پیشرفته انتهای سایت (ارتباط با ما و فوتر) */
+        /* ارتباط با ما و فوتر */
         .dark-section-pitch {
             background: var(--footer-bg);
             color: var(--white);
@@ -397,7 +307,7 @@
         }
 
         .contact-info h2 {
-            color: #38bdf8; /* آبی روشن نئونی برای جذابیت بالا بر روی مشکی */
+            color: #38bdf8;
             margin-bottom: 20px;
             font-size: 2rem;
         }
@@ -448,10 +358,9 @@
             <div class="logo">MechHinge <span>تیم مهندسی مکانیک</span></div>
             <nav>
                 <ul>
-                    <li><a href="#hero">خانه</a></li>
-                    <li><a href="#problem">بیان مسئله</a></li>
-                    <li><a href="#catalog">کاتالوگ فنی</a></li>
-                    <li><a href="#team">اعضای شرکت</a></li>
+                    <li><a href="index.html">خانه</a></li>
+                    <li><a href="catalog.html">کاتالوگ فنی</a></li>
+                    <li><a href="#specifications">مشخصات فنی</a></li>
                     <li><a href="#contact">ارتباط با ما</a></li>
                 </ul>
             </nav>
@@ -463,80 +372,14 @@
             <div class="hero-text">
                 <h1>انقلابی در بهینه‌سازی فضای آشپزخانه</h1>
                 <p>طراحی و توسعه اولین لولای هوشمند با مکانیزم ترکیبی حرکت به داخل و چرخش همزمان (Bus-Door / Pocket Door) برای فضاهای مینیاتوری و مدرن.</p>
-                <a href="#catalog" class="btn">مشاهده کاتالوگ فنی</a>
+                <div class="hero-buttons">
+                    <a href="catalog.html" class="btn">مشاهده کاتالوگ فنی</a>
+                    <a href="#specifications" class="btn btn">مشخصات فنی</a>
+                </div>
             </div>
             <div class="hero-visual">
                 <div class="cabinet-mockup">
                     <div class="door-hinge-animation"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="problem" class="section-padding bg-light">
-        <div class="container">
-            <h2 class="section-title">چرا مکانیزم Bus-Door؟</h2>
-            <div class="grid-2">
-                <div class="card">
-                    <h3>❌ چالش فضای مانور (Clearance Space)</h3>
-                    <p>با کوچک‌تر شدن آپارتمان‌های امروزی، لولاهای معمولی ۹۰ درجه فضای زیادی را اشغال کرده و در فضاهای تنگ مانع حرکت می‌شوند. لولاهای تاشو نیز زیبایی دکوراسیون را از بین می‌برند.</p>
-                </div>
-                <div class="card">
-                    <h3>✅ راهکار نوآورانه تیم ما</h3>
-                    <p>مکانیزم طراحی شده توسط تیم ما، حرکت دورانی و انتقالی را همزمان ترکیب کرده به طوری که درب هنگام چرخش، به درون حجم کابینت هدایت می‌شود تا فضای جلوی کابینت کاملاً آزاد بماند.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="catalog" class="section-padding">
-        <div class="container">
-            <h2 class="section-title">کاتالوگ فنی و مشخصات محصول</h2>
-            
-            <div class="visual-gallery">
-                <div class="gallery-item">
-                    <img src="installed-view.png" alt="طرح سازه و مکانیزم نصب شده" onerror="this.src='https://via.placeholder.com/600x450?text=Installed+View';">
-                    <div class="image-caption">شکل ۱: رندر طرح سازه و موقعیت مکانیزم لولا در حالت نصب‌شده روی دیواره کابینت</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="exploded-view.png" alt="نمای انفجاری لولای هوشمند" onerror="this.src='https://via.placeholder.com/600x450?text=Exploded+View';">
-                    <div class="image-caption">شکل ۲: نمای انفجاری (Exploded View) و جزئیات قطعات ریل، واگن و بازوهای مکانیکی سیستم</div>
-                </div>
-            </div>
-
-            <div class="catalog-details-block">
-                <h3>مشخصات فنی سیستم Bus-Door / Pocket Door</h3>
-                <div class="catalog-grid">
-                    <table class="tech-table">
-                        <tr>
-                            <td><strong>نوع مکانیزم:</strong></td>
-                            <td>حرکت همزمان چرخشی-انتقالی (Concurrent Motion)</td>
-                        </tr>
-                        <tr>
-                            <td><strong>جنس قطعات اصلی:</strong></td>
-                            <td>آلومینیوم آنودایز شده، واگن‌های POM، اتصالات استیل</td>
-                        </tr>
-                        <tr>
-                            <td><strong>عمر مفید مکانیکی (MVP):</strong></td>
-                            <td>۵۰,۰۰۰ الی ۸۰,۰۰۰ سیکل حرکت استاندارد</td>
-                        </tr>
-                        <tr>
-                            <td><strong>بهای تمام شده (BOM):</strong></td>
-                            <td>۱,۶۱۳,۰۰۰ تومان (ست کامل دوتایی)</td>
-                        </tr>
-                        <tr>
-                            <td><strong>قیمت نهایی عرضه:</strong></td>
-                            <td>۲,۱۰۰,۰۰۰ تومان (بازار Premium و لوکس)</td>
-                        </tr>
-                    </table>
-                    <div class="features-list">
-                        <h4>مزایای رقابتی محصول:</h4>
-                        <ul>
-                            <li>حذف ۱۰۰ درصدی شعاع مزاحم بازشوی درب کابینت و کمد دیواری.</li>
-                            <li>بهره‌گیری از سیستم دمپر (Dampener) نرم جهت جلوگیری از ضربه و صدا به بدنه.</li>
-                            <li>طراحی مینیمال و پنهان (Hidden Mechanism) بدون ایجاد شکستگی در ظاهر درب.</li>
-                        </ul>
-                    </div>
                 </div>
             </div>
         </div>
@@ -633,7 +476,7 @@
     <script>
         document.getElementById('orderForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('پیام شما با موفقیت ثبت شد! شبیه‌سازی بخش بک‌آند در فاز بعدی کامل خواهد شد.');
+            alert('پیام شما با موفقیت ثبت شد!');
         });
     </script>
 </body>
