@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>کاتالوگ جامع و تحلیل تکنولوژیک | MechHinge</title>
     <style>
-        @import url('https://v1.fontapi.ir/dastnevis/vazir.css');
+        /* بارگذاری فونت استاندارد وزیر متن برای صفحه کاتالوگ */
+        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap');
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Vazir', Tahoma, sans-serif;
+            font-family: 'Vazirmatn', Tahoma, sans-serif;
         }
 
         :root {
@@ -47,21 +48,6 @@
             align-items: center;
         }
 
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-
-        nav ul li {
-            margin-right: 25px;
-        }
-
-        nav ul li a {
-            color: var(--white);
-            text-decoration: none;
-            font-weight: 500;
-        }
-
         .catalog-paper {
             background: var(--white);
             padding: 50px;
@@ -77,6 +63,7 @@
             padding-bottom: 15px;
             margin-bottom: 40px;
             text-align: center;
+            font-weight: 700;
         }
 
         h2 {
@@ -87,6 +74,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            font-weight: 700;
         }
 
         h2::before {
@@ -116,11 +104,6 @@
             margin-bottom: 10px;
         }
 
-        strong {
-            color: var(--dark-color);
-        }
-
-        /* استایل گالری تصاویر سه بعدی */
         .image-container {
             display: grid;
             grid-template-columns: 1fr;
@@ -170,10 +153,6 @@
             transition: background 0.2s;
         }
 
-        .back-btn:hover {
-            background-color: #172554;
-        }
-
         footer {
             text-align: center;
             padding: 30px 0;
@@ -191,7 +170,7 @@
             <div class="logo">MechHinge <span>کاتالوگ فنی</span></div>
             <nav>
                 <ul>
-                    <li><a href="index.html">بازگشت به خانه</a></li>
+                    <li><a href="index.html" style="color:white; text-decoration:none; font-weight:bold;">بازگشت به خانه</a></li>
                 </ul>
             </nav>
         </div>
