@@ -1,0 +1,451 @@
+/* بازنشانی و فونت‌های پایه */
+@import url('https://v1.fontapi.ir/dastnevis/vazir.css'); /* لود فونت استاندارد فارسی */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Vazir', Tahoma, sans-serif;
+}
+
+:root {
+    --primary-color: #1e3a8a; /* آبی مهندسی تخصصی */
+    --secondary-color: #0d9488; /* سبز کاتالیزور دکوراسیون */
+    --dark-color: #1f2937;
+    --light-color: #f3f4f6;
+    --white: #ffffff;
+}
+
+body {
+    background-color: var(--white);
+    color: var(--dark-color);
+    line-height: 1.6;
+}
+
+.container {
+    width: 85%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-padding {
+    padding: 80px 0;
+}
+
+.bg-light {
+    background-color: var(--light-color);
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: var(--primary-color);
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: var(--secondary-color);
+    margin: 10px auto 0 auto;
+    border-radius: 2px;
+}
+
+.section-subtitle {
+    text-align: center;
+    margin-top: -30px;
+    margin-bottom: 40px;
+    color: #6b7280;
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: var(--white);
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #0f766e;
+}
+
+/* هدر و منو */
+header {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.logo span {
+    font-size: 0.9rem;
+    color: #93c5fd;
+    margin-right: 10px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #93c5fd;
+}
+
+/* بخش هیرو */
+.hero-section {
+    background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+    color: var(--white);
+    padding: 100px 0;
+}
+
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.hero-text {
+    flex: 1;
+}
+
+.hero-text h1 {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    line-height: 1.3;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #cbd5e1;
+}
+
+.hero-visual {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+/* شبیه‌سازی انیمیشن حرکت لولا با CSS */
+.cabinet-mockup {
+    width: 200px;
+    height: 250px;
+    border: 4px solid #475569;
+    position: relative;
+    background-color: #334155;
+    border-radius: 8px;
+}
+
+.door-hinge-animation {
+    width: 100%;
+    height: 100%;
+    background-color: #f59e0b;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform-origin: right center;
+    border-radius: 4px;
+    animation: busDoorMove 4s infinite ease-in-out;
+}
+
+@keyframes busDoorMove {
+    0%, 100% {
+        transform: rotateY(0deg) translateX(0px);
+    }
+    50% {
+        /* شبیه‌سازی حرکت اتوبوسی: همزمان چرخشY و انتقال خطیX به داخل */
+        transform: rotateY(-45deg) translateX(-60px);
+        opacity: 0.8;
+    }
+}
+
+/* گریدها و کارت‌ها */
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1xl 1fr;
+    gap: 30px;
+}
+
+@media (min-width: 768px) {
+    .grid-2 { grid-template-columns: 1fr 1fr; }
+}
+
+.card {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.card h3 {
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+/* کاتالوگ فنی */
+.catalog-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+@media (min-width: 768px) {
+    .catalog-container { flex-direction: row; }
+}
+
+.catalog-image {
+    flex: 1;
+    text-align: center;
+}
+
+.catalog-image img {
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.catalog-image .caption {
+    margin-top: 10px;
+    font-size: 0.85rem;
+    color: #6b7280;
+}
+
+.catalog-details {
+    flex: 1;
+}
+
+.catalog-details h3 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.tech-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 25px;
+}
+
+.tech-table td {
+    padding: 12px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.features-list h4 {
+    margin-bottom: 10px;
+    color: var(--secondary-color);
+}
+
+.features-list ul {
+    padding-right: 20px;
+}
+
+.features-list ul li {
+    margin-bottom: 8px;
+}
+
+/* بخش اعضای تیم و کارت ویزیت */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.member-card {
+    background: var(--white);
+    border-radius: 8px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border-top: 4px solid var(--primary-color);
+    transition: transform 0.3s;
+}
+
+.member-card:hover {
+    transform: translateY(-5px);
+}
+
+.avatar {
+    width: 70px;
+    height: 70px;
+    background-color: #dbeafe;
+    color: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px auto;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.member-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.member-card .role {
+    font-size: 0.85rem;
+    color: var(--secondary-color);
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.member-card .skills {
+    font-size: 0.8rem;
+    color: #6b7280;
+    margin-bottom: 20px;
+    direction: ltr;
+}
+
+.vcard-btn {
+    display: block;
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    padding: 8px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    transition: all 0.3s;
+}
+
+.vcard-btn:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+/* بخش تماس با ما */
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+@media (min-width: 768px) {
+    .contact-container { flex-direction: row; }
+}
+
+.contact-info {
+    flex: 1;
+}
+
+.contact-info h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.contact-form {
+    flex: 1;
+}
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #d1d5db;
+    border-radius: 5px;
+}
+
+/* فوتر */
+footer {
+    background-color: #111827;
+    color: #9ca3af;
+    text-align: center;
+    padding: 30px 0;
+    font-size: 0.9rem;
+}
+/* استایل‌های به‌روزرسانی شده بخش کاتالوگ و گالری دوقلو */
+.visual-gallery {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+@media (min-width: 768px) {
+    .visual-gallery {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.gallery-item {
+    background: var(--white);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    text-align: center;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: contain;
+    border-radius: 6px;
+}
+
+.image-caption {
+    margin-top: 12px;
+    font-size: 0.9rem;
+    color: #4b5563;
+    font-weight: 500;
+}
+
+.catalog-details-block {
+    background-color: var(--light-color);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.catalog-details-block h3 {
+    color: var(--primary-color);
+    margin-bottom: 25px;
+}
+
+.catalog-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+}
+
+@media (min-width: 768px) {
+    .catalog-grid {
+        grid-template-columns: 1.2fr 0.8fr;
+    }
+}
