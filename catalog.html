@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>کاتالوگ جامع و تحلیل تکنولوژیک | MechHinge</title>
+    <style>
+        @import url('https://v1.fontapi.ir/dastnevis/vazir.css');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Vazir', Tahoma, sans-serif;
+        }
+
+        :root {
+            --primary-color: #1e3a8a;
+            --secondary-color: #0d9488;
+            --dark-color: #1f2937;
+            --light-color: #f8fafc;
+            --white: #ffffff;
+        }
+
+        body {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.8;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 50px 0;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 20px 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-right: 25px;
+        }
+
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .catalog-paper {
+            background: var(--white);
+            padding: 50px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            margin-top: 30px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 2.2rem;
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.4rem;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h2::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 25px;
+            background-color: var(--secondary-color);
+            border-radius: 2px;
+        }
+
+        p {
+            font-size: 1.05rem;
+            color: #4b5563;
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            padding-right: 25px;
+            margin-bottom: 25px;
+        }
+
+        li {
+            font-size: 1.05rem;
+            color: #4b5563;
+            margin-bottom: 10px;
+        }
+
+        strong {
+            color: var(--dark-color);
+        }
+
+        /* استایل گالری تصاویر سه بعدی */
+        .image-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            margin: 35px 0;
+        }
+
+        @media (min-width: 768px) {
+            .image-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .img-box {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 12px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
+
+        .img-box img {
+            width: 100%;
+            height: auto;
+            max-height: 350px;
+            object-fit: contain;
+            border-radius: 6px;
+        }
+
+        .caption {
+            font-size: 0.85rem;
+            color: #6b7280;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 30px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+
+        .back-btn:hover {
+            background-color: #172554;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            color: #94a3b8;
+            font-size: 0.85rem;
+            margin-top: 50px;
+            border-top: 1px solid #e2e8f0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container navbar">
+            <div class="logo">MechHinge <span>کاتالوگ فنی</span></div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">بازگشت به خانه</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <article class="catalog-paper">
+            <h1>کاتالوگ جامع و تحلیل تکنولوژیک مکانیزم</h1>
+
+            <div class="image-container">
+                <div class="img-box">
+                    <img src="mechanism-view.jpg" alt="مکانیزم روی دیواره کابینت" onerror="this.src='https://via.placeholder.com/500x350?text=Mechanism+View';">
+                    <div class="caption">نمای رندر شده سازه و اتصالات صلب لولا روی بدنه جانبی</div>
+                </div>
+                <div class="img-box">
+                    <img src="exploded-view.png" alt="نمای انفجاری قطعات" onerror="this.src='https://via.placeholder.com/500x350?text=Exploded+View';">
+                    <div class="caption">نمای انفجاری اجزا، اتصالات ریل و واگن‌های غلتکی</div>
+                </div>
+            </div>
+
+            <h2>۱. معرفی و بیان نوآوری طرح</h2>
+            <p>مکانیزم لولای هوشمند همزمان (Bus-Door / Pocket Door) توسعه‌یافته توسط تیم مهندسی ما، یک راهکار پیشرفته سینماتیکی برای حل چالش محدودیت فضای مانور (Clearance Space) در محیط‌های مینیاتوری و طراحی‌های مینیمال مدرن است. بر خلاف لولاهای سنتی بازار که صرفاً یک حرکت دورانی ساده ۹۰ یا ۱۸۰ درجه حول یک محور ثابت ایجاد می‌کنند، این سازه با تلفیق همزمان حرکت انتقالی (خطی) و چرخشی، درب را هنگام باز شدن به درون حجم مرده‌ی کابینت یا کمد هدایت می‌کند. این فرآیند باعث می‌شود شعاع مزاحم بازشوی درب کاملاً حذف شده و راهروها یا فضاهای تنگ آشپزخانه همواره آزاد بمانند.</p>
+
+            <h2>۲. مبانی فنی و الهامات بین‌المللی مکانیزم</h2>
+            <p>طراحی دستاورد فنی این پروژه بر پایه سه رکن اساسی از فناوری‌های روز جهان بنا شده است:</p>
+            <ul>
+                <li><strong>سیستم چهارمیله‌ای همزمان (Four-Bar Linkage):</strong> استفاده از اصول سینماتیک پیشرفته برای هدایت دقیق درب‌ها در امتداد ریل منحنی و تضمین حرکت نرم بدون قفل‌شدگی مکانیکی.</li>
+                <li><strong>پلیمرهای مهندسی پیشرفته (POM):</strong> استفاده از چرخ‌ها و قطعات غلتکی از جنس پلیمر خودروان‌کار POM جهت کاهش شدید اصطکاک، حذف کامل نیاز به روغن‌کاری مداوم و کنترل لرزش‌های ناگهانی سیستم.</li>
+                <li><strong>توزیع بهینه جرم و طراحی ماژولار:</strong> کاهش استفاده از قطعات فولادی سنگین در بخش‌های غیرسازه‌ای و جایگزینی آن با آلومینیوم آنودایز شده جهت کاهش گشتاور وارده بر اتصالات دیواره کابینت و افزایش طول عمر کل مکانیزم.</li>
+            </ul>
+
+            <h2>۳. کاربردهای اصلی سیستم لولای همزمان</h2>
+            <ul>
+                <li><strong>آشپزخانه‌های مینیاتوری و کم‌جا:</strong> بهینه‌سازی مسیر حرکت در مطبخ‌ها و کابینت‌های نزدیک به دیوارهای جانبی و حتی کابینت‌های در مجاورت سقف‌ها.</li>
+                <li><strong>کمدهای دیواری و کلوزت‌روم‌های مدرن:</strong> حذف مزاحمت درب‌های بزرگ کمد دیواری در اتاق‌خواب‌های کوچک.</li>
+                <li><strong>طراحی دکوراسیون پنهان (Hidden Spaces):</strong> پنهان‌سازی ایستگاه‌های لوازم خانگی (مانند قهوه‌ساز یا مایکروویو) درون کابینت به صورت کاملاً لوکس و یکدست.</li>
+            </ul>
+
+            <h2>۴. ارزیابی ریسک و نتیجه‌گیری توجیه فنی</h2>
+            <p>این محصول به عنوان یک «راهکار ارزش‌آفرین» (Engineering Solution) ارزیابی می‌شود. اگرچه به دلیل استفاده از قطعات ماشین‌کاری شده CNC و متریال درجه‌یک، هزینه بهای تمام‌شده اولیه برای نسخه MVP در مقایسه با یراق‌آلات فله‌ای بالاتر است، اما نبود نمونه مشابه استاندارد در بازار داخلی و پتانسیل بالای آن در پروژه‌های ساختمانی لوکس و Premium، توجیه اقتصادی طرح را کاملاً تضمین می‌کند.</p>
+
+            <a href="index.html" class="back-btn">← بازگشت به صفحه اصلی</a>
+        </article>
+    </div>
+
+    <footer>
+        <p>© 1405 | بخش مستندات فنی پروژه لولای هوشمند همزمان</p>
+    </footer>
+</body>
+</html>
