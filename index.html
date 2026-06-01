@@ -4,7 +4,442 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مکانیزم لولای هوشمند همزمان | Bus-Door Cabinet Hinge</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* بازنشانی و فونت‌های پایه */
+        @import url('https://v1.fontapi.ir/dastnevis/vazir.css');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Vazir', Tahoma, sans-serif;
+        }
+
+        :root {
+            --primary-color: #1e3a8a;
+            --secondary-color: #0d9488;
+            --dark-color: #1f2937;
+            --light-color: #f3f4f6;
+            --white: #ffffff;
+            --footer-bg: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        }
+
+        body {
+            background-color: var(--white);
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .bg-light {
+            background-color: var(--light-color);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            margin: 10px auto 0 auto;
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            margin-top: -30px;
+            margin-bottom: 40px;
+            color: #6b7280;
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #0f766e;
+        }
+
+        /* هدر و منو */
+        header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .logo span {
+            font-size: 0.9rem;
+            color: #93c5fd;
+            margin-right: 10px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #93c5fd;
+        }
+
+        /* بخش هیرو */
+        .hero-section {
+            background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+            color: var(--white);
+            padding: 100px 0;
+        }
+
+        .hero-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #cbd5e1;
+        }
+
+        .hero-visual {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .cabinet-mockup {
+            width: 200px;
+            height: 250px;
+            border: 4px solid #475569;
+            position: relative;
+            background-color: #334155;
+            border-radius: 8px;
+        }
+
+        .door-hinge-animation {
+            width: 100%;
+            height: 100%;
+            background-color: #f59e0b;
+            position: absolute;
+            right: 0;
+            top: 0;
+            transform-origin: right center;
+            border-radius: 4px;
+            animation: busDoorMove 4s infinite ease-in-out;
+        }
+
+        @keyframes busDoorMove {
+            0%, 100% { transform: rotateY(0deg) translateX(0px); }
+            50% { transform: rotateY(-45deg) translateX(-60px); opacity: 0.8; }
+        }
+
+        /* بیان مسئله */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        @media (min-width: 768px) {
+            .grid-2 { grid-template-columns: 1fr 1fr; }
+        }
+
+        .card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        /* کاتالوگ و گالری */
+        .visual-gallery {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        @media (min-width: 768px) {
+            .visual-gallery { grid-template-columns: 1fr 1fr; }
+        }
+
+        .gallery-item {
+            background: var(--white);
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            max-height: 400px;
+            object-fit: contain;
+            border-radius: 6px;
+        }
+
+        .image-caption {
+            margin-top: 12px;
+            font-size: 0.9rem;
+            color: #4b5563;
+            font-weight: 500;
+        }
+
+        .catalog-details-block {
+            background-color: var(--light-color);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .catalog-details-block h3 {
+            color: var(--primary-color);
+            margin-bottom: 25px;
+        }
+
+        .catalog-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        @media (min-width: 768px) {
+            .catalog-grid { grid-template-columns: 1.2fr 0.8fr; }
+        }
+
+        .tech-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 25px;
+        }
+
+        .tech-table td {
+            padding: 12px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .features-list h4 {
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+
+        .features-list ul {
+            padding-right: 20px;
+        }
+
+        .features-list ul li {
+            margin-bottom: 8px;
+        }
+
+        /* تیم و کارت ویزیت هوشمند */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .member-card {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--primary-color);
+            transition: transform 0.3s;
+        }
+
+        .member-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .avatar {
+            width: 70px;
+            height: 70px;
+            background-color: #dbeafe;
+            color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px auto;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .member-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .member-card .role {
+            font-size: 0.85rem;
+            color: var(--secondary-color);
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .vcard-info {
+            text-align: right;
+            background: #f8fafc;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .vcard-info div {
+            margin-bottom: 6px;
+            word-break: break-all;
+        }
+
+        .vcard-info div:last-child {
+            margin-bottom: 0;
+        }
+
+        .member-card .skills {
+            font-size: 0.8rem;
+            color: #6b7280;
+            direction: ltr;
+            font-weight: bold;
+        }
+
+        /* بخش رنگ‌بندی جدید و پیشرفته انتهای سایت (ارتباط با ما و فوتر) */
+        .dark-section-pitch {
+            background: var(--footer-bg);
+            color: var(--white);
+            border-top: 5px solid var(--secondary-color);
+        }
+
+        .contact-container {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        @media (min-width: 768px) {
+            .contact-container { flex-direction: row; }
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-info h2 {
+            color: #38bdf8; /* آبی روشن نئونی برای جذابیت بالا بر روی مشکی */
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+
+        .contact-info p {
+            color: #cbd5e1;
+            margin-bottom: 15px;
+        }
+
+        .contact-form {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #475569;
+            border-radius: 5px;
+            background: #1e293b;
+            color: var(--white);
+        }
+
+        .contact-form input:focus, .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+        }
+
+        footer {
+            background-color: #020617;
+            color: #94a3b8;
+            text-align: center;
+            padding: 30px 0;
+            font-size: 0.9rem;
+            border-top: 1px solid #1e293b;
+        }
+    </style>
 </head>
 <body>
 
@@ -97,7 +532,7 @@
                     <div class="features-list">
                         <h4>مزایای رقابتی محصول:</h4>
                         <ul>
-                            <li>حذف ۱۰۰ درصدی شعاع مزاحم بازشوی درب کابینت و کمد کمد دیواری.</li>
+                            <li>حذف ۱۰۰ درصدی شعاع مزاحم بازشوی درب کابینت و کمد دیواری.</li>
                             <li>بهره‌گیری از سیستم دمپر (Dampener) نرم جهت جلوگیری از ضربه و صدا به بدنه.</li>
                             <li>طراحی مینیمال و پنهان (Hidden Mechanism) بدون ایجاد شکستگی در ظاهر درب.</li>
                         </ul>
@@ -110,57 +545,72 @@
     <section id="team" class="section-padding bg-light">
         <div class="container">
             <h2 class="section-title">اعضای کلیدی و ساختار سازمانی شرکت</h2>
-            <p class="section-subtitle">فارغ‌التحصیلان شهید سلطانی ۳ کرج و مهندسان مکانیک دانشگاه تهران</p>
+            <p class="section-subtitle">دانشجویان مهندسی مکانیک دانشگاه تهران</p>
             
             <div class="team-grid">
                 <div class="member-card">
                     <div class="avatar">PM</div>
                     <h3>بهرام جدید بنیاد</h3>
                     <p class="role">Product Manager (مدیر محصول)</p>
+                    <div class="vcard-info">
+                        <div>📞 <b>تلفن:</b> 09914735421</div>
+                        <div>✉️ <b>ایمیل:</b> bahramjadidbonyad@gmail.com</div>
+                    </div>
                     <div class="skills">MATLAB | Office | English</div>
-                    <a href="mailto:bahramjadidbonyad@gmail.com" class="vcard-btn">کارت ویزیت دیجیتال</a>
                 </div>
 
                 <div class="member-card">
                     <div class="avatar">R&D</div>
                     <h3>محمد حسین امیرخانی</h3>
                     <p class="role">R&D Manager (مدیر تحقیق و توسعه)</p>
+                    <div class="vcard-info">
+                        <div>📞 <b>تلفن:</b> 09308001904</div>
+                        <div>✉️ <b>ایمیل:</b> husein86amk@gmail.com</div>
+                    </div>
                     <div class="skills">MATLAB | Office | English</div>
-                    <a href="mailto:husein86amk@gmail.com" class="vcard-btn">کارت ویزیت دیجیتال</a>
                 </div>
 
                 <div class="member-card">
                     <div class="avatar">HR</div>
                     <h3>علی قره چایی</h3>
                     <p class="role">HR Manager (مدیر منابع انسانی)</p>
+                    <div class="vcard-info">
+                        <div>📞 <b>تلفن:</b> 09926192902</div>
+                        <div>✉️ <b>ایمیل:</b> ali.gharechaei0@gmail.com</div>
+                    </div>
                     <div class="skills">MATLAB | Office | English</div>
-                    <a href="mailto:ali.gharechaei0@gmail.com" class="vcard-btn">کارت ویزیت دیجیتال</a>
                 </div>
 
                 <div class="member-card">
                     <div class="avatar">BD</div>
                     <h3>علیرضا ممبینی</h3>
                     <p class="role">Business Development Manager</p>
+                    <div class="vcard-info">
+                        <div>📞 <b>تلفن:</b> در حال به‌روزرسانی...</div>
+                        <div>✉️ <b>ایمیل:</b> alireza.mombeyni@gmail.com</div>
+                    </div>
                     <div class="skills">Photoshop | Office | English</div>
-                    <a href="mailto:alireza.mombeyni@gmail.com" class="vcard-btn">کارت ویزیت دیجیتال</a>
                 </div>
 
                 <div class="member-card">
                     <div class="avatar">OPS</div>
                     <h3>محمد مهدی ابراهیمی</h3>
                     <p class="role">Operations Manager (مدیر عملیات)</p>
+                    <div class="vcard-info">
+                        <div>📞 <b>تلفن:</b> 09216932352</div>
+                        <div>✉️ <b>ایمیل:</b> Mahdiebrahmi2352@gmail.com</div>
+                    </div>
                     <div class="skills">MATLAB | Office | English</div>
-                    <a href="mailto:810604214@example.com" class="vcard-btn">کارت ویزیت دیجیتال</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="section-padding">
+    <section id="contact" class="section-padding dark-section-pitch">
         <div class="container contact-container">
             <div class="contact-info">
                 <h2>ارتباط با تیم توسعه</h2>
-                <p>جهت کسب اطلاعات بیشتر، دریافت نقشه‌های CAD و یا همکاری در بومی‌سازی فرآیند ساخت صنعتی لولای هوشمند، با ما در ارتباط باشید.</p>
+                <p>جهت کسب اطلاعات بیشتر و یا همکاری در بومی‌سازی فرآیند ساخت صنعتی لولای هوشمند، با ما در ارتباط باشید.</p>
                 <p>📍 دانشکده مهندسی مکانیک - پروژه درآمدی بر مهندسی مکانیک (دکتر چینی)</p>
             </div>
             <div class="contact-form">
