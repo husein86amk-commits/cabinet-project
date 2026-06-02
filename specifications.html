@@ -18,27 +18,40 @@
             --primary-color: #1e3a8a;
             --secondary-color: #0d9488;
             --dark-color: #1f2937;
-            --light-color: #f8fafc;
             --white: #ffffff;
         }
 
+        /* پس‌زمینه پویا و انیمیشنی متحرک */
         body {
-            background-color: var(--light-color);
+            background: linear-gradient(-45deg, #f1f5f9, #e2e8f0, #e0f2fe, #f0fdfa);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
             color: var(--dark-color);
             line-height: 1.8;
+            min-height: 100vh;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .container {
-            width: 80%;
+            width: 85%;
             max-width: 1000px;
             margin: 0 auto;
-            padding: 50px 0;
+            padding: 40px 0;
         }
 
         header {
-            background-color: var(--primary-color);
+            background: linear-gradient(135deg, var(--primary-color) 0%, #0f172a 100%);
             color: var(--white);
             padding: 20px 0;
+            box-shadow: 0 4px 20px rgba(30, 58, 138, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         .navbar {
@@ -47,12 +60,34 @@
             align-items: center;
         }
 
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .logo span {
+            font-size: 0.85rem;
+            color: #93c5fd;
+            margin-right: 10px;
+            font-weight: 400;
+        }
+
+        /* افکت شیشه‌ای مدرن برای بدنه اطلاعات فنی */
         .spec-paper {
-            background: var(--white);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             padding: 50px;
-            border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.6);
             margin-top: 30px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         h1 {
@@ -63,101 +98,145 @@
             margin-bottom: 40px;
             text-align: center;
             font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
 
         h2 {
             color: var(--primary-color);
             font-size: 1.4rem;
-            margin-top: 35px;
-            margin-bottom: 15px;
+            margin-top: 40px;
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             font-weight: 700;
+            transition: transform 0.3s;
+        }
+
+        .spec-paper section:hover h2 {
+            transform: translateX(-5px);
         }
 
         h2::before {
             content: '';
             display: inline-block;
-            width: 8px;
-            height: 25px;
-            background-color: #2563eb;
-            border-radius: 2px;
+            width: 6px;
+            height: 24px;
+            background: linear-gradient(to bottom, #2563eb, #3b82f6);
+            border-radius: 4px;
         }
 
         p {
             font-size: 1.05rem;
-            color: #4b5563;
+            color: #374151;
             text-align: justify;
             margin-bottom: 20px;
         }
 
-        ul {
-            padding-right: 25px;
-            margin-bottom: 25px;
+        p b {
+            color: var(--primary-color);
         }
 
+        ul {
+            padding-right: 20px;
+            margin-bottom: 25px;
+            list-style: none;
+        }
+
+        /* افکت جذاب لیست‌ها */
         li {
             font-size: 1.05rem;
-            color: #4b5563;
-            margin-bottom: 12px;
+            color: #374151;
+            margin-bottom: 14px;
+            position: relative;
+            padding-right: 20px;
+            transition: transform 0.2s;
             text-align: justify;
         }
 
+        li:hover {
+            transform: translateX(-3px);
+            color: #000;
+        }
+
+        li::before {
+            content: '⚙️';
+            position: absolute;
+            right: 0;
+            font-size: 0.95rem;
+            top: 1px;
+        }
+
         .image-container {
-            margin: 35px 0;
+            margin: 40px 0;
             display: flex;
             justify-content: center;
         }
 
+        /* کادر نگهدارنده تصویر با تم گرادینت دوتایی مدرن */
         .img-box-placeholder {
-            background: #f1f5f9;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
             border: 2px dashed #cbd5e1;
-            border-radius: 8px;
-            padding: 50px 20px;
+            border-radius: 16px;
+            padding: 60px 20px;
             text-align: center;
             width: 100%;
-            max-width: 600px;
-            color: #64748b;
+            max-width: 650px;
+            color: #475569;
             font-weight: bold;
+            box-shadow: inset 0 4px 12px rgba(0,0,0,0.02);
+            transition: border-color 0.3s, background 0.3s;
+        }
+
+        .img-box-placeholder:hover {
+            border-color: #2563eb;
+            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
         }
 
         .btn-redirect {
             display: inline-block;
-            background-color: var(--secondary-color);
+            background: linear-gradient(135deg, var(--secondary-color) 0%, #2dd4bf 100%);
             color: var(--white);
-            padding: 12px 24px;
+            padding: 12px 28px;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 8px;
             font-weight: bold;
-            transition: background 0.3s;
+            box-shadow: 0 4px 14px rgba(13, 148, 136, 0.25);
+            transition: all 0.3s;
             margin-top: 15px;
         }
 
         .btn-redirect:hover {
-            background-color: #0f766e;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(13, 148, 136, 0.4);
+            background: linear-gradient(135deg, #0f766e 0%, #0d9488 100%);
         }
 
         .back-btn {
             display: inline-block;
-            margin-top: 40px;
-            background-color: var(--primary-color);
+            margin-top: 20px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #2563eb 100%);
             color: var(--white);
-            padding: 10px 20px;
+            padding: 12px 28px;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 8px;
             font-weight: bold;
-            transition: background 0.2s;
-            border: none;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+            transition: all 0.3s;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+            background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
         }
 
         footer {
             text-align: center;
-            padding: 30px 0;
-            color: #94a3b8;
+            padding: 40px 0 20px 0;
+            color: #64748b;
             font-size: 0.85rem;
-            margin-top: 50px;
-            border-top: 1px solid #e2e8f0;
+            margin-top: 30px;
         }
     </style>
 </head>
@@ -167,9 +246,7 @@
         <div class="container navbar">
             <div class="logo">MechHinge <span>اطلاعات فنی</span></div>
             <nav>
-                <ul>
-                    <li><a href="index.html" style="color:white; text-decoration:none; font-weight:bold;">بازگشت به خانه</a></li>
-                </ul>
+                <a href="index.html" style="color:white; text-decoration:none; font-weight:bold; font-size: 0.95rem; transition: color 0.2s;" onmouseover="this.style.color='#38bdf8'" onmouseout="this.style.color='white'">بازگشت به خانه ←</a>
             </nav>
         </div>
     </header>
@@ -181,44 +258,51 @@
             <div class="image-container">
                 <div class="img-box-placeholder">
                     📸 [محل قرارگیری تصویر بخش اطلاعات فنی]<br>
-                    <span style="font-size: 0.85rem; font-weight: normal; color: #94a3b8; display: block; margin-top: 8px;">پس از ارسال عکس توسط شما، در این کادر بارگذاری خواهد شد.</span>
+                    <span style="font-size: 0.85rem; font-weight: normal; color: #64748b; display: block; margin-top: 10px;">پس از ارسال عکس توسط شما، این کادر به تگ تصویر اصلی تغییر خواهد کرد.</span>
                 </div>
             </div>
 
-            <h2>۱. مشخصات فنی دقیق و متریال اجزا</h2>
-            <p><b>مستندات ساختاری و مهندسی قطعات لولای هوشمند:</b><br>
-            مکانیزم لولای هوشمند همزمان (Bus-Door / Pocket Door) از یک ساختار چندپارچه مکانیکی تشکیل شده است. اجزای اصلی این مکانیزم و مشخصات متریال آن‌ها به شرح زیر تبیین می‌گردد:</p>
-            <ul>
-                <li><strong>ریل‌های منحنی هدایت‌گر (Curved Guide Rails):</strong> این ریل‌ها وظیفه تعیین مسیر دقیق حرکت ترکیبی (انتقالی-دورانی) درب را بر عهده دارند. به منظور تحمل نیروهای دینامیکی حاصل از شتاب اولیه حرکت و جلوگیری از دفرمه شدن در طول زمان، این قطعه از جنس آلومینیوم آنودایز شده (گرید صنعتی) یا فولاد ضدزنگ (Stainless Steel 304) با پوشش سخت‌کاری‌شده در نظر گرفته شده است.</li>
-                <li><strong>واگن‌ها و چرخ‌های غلتکی (Roller Carriages):</strong> برای تضمین حرکت روان و بی‌صدا در داخل ریل‌ها، غلتک‌های این بخش از نوعی پلیمر ساخته شده‌اند که ویژگی منحصربه‌فرد این پلیمر، خاصیت خودروان‌کاری (Self-Lubricating)، مقاومت بسیار بالا در برابر سایش و ضریب اصطکاک ناچیز است که نیاز به روغن‌کاری دوره‌ای را کاملاً حذف می‌کند.</li>
-                <li><strong>بازوی مفصل داخلی و مکانیسم چهارمیله‌ای (Four-Bar Linkage Internal Arm):</strong> بازوی اصلی که انتقال‌دهنده گشتاور و کنترل‌کننده زاویه چرخش درب است، به روش ماشین‌کاری CNC از جنس فولاد ساختمانی با استحکام بالا تولید می‌شود تا در برابر ممان‌های خمشی ناشی از وزن درب‌های سنگین، کمترین میزان انحراف را داشته باشد.</li>
-                <li><strong>صفحه اتصال درب و بدنه نگهدارنده:</strong> این قطعات واسط که لولا را به بدنه جانبی کابینت و جداره داخلی درب متصل می‌کنند، از ورق‌های فولادی پرس‌شده با ضخامت بالا به همراه پوشش گالوانیزه جهت پیشگیری از خوردگی و زنگ‌زدگی در محیط‌های مرطوب (مانند آشپزخانه) طراحی شده‌اند.</li>
-                <li><strong>سیستم دمپر نرم‌حرکت (Soft-Close Shock Absorbers):</strong> در انتهای کورس حرکت خطی و چرخشی، یک جفت دمپر هیدرولیکی مینیاتوری تعبیه شده است تا انرژی جنبشی درب را در چند سانتی‌متر پایانی مستهلک کرده و از برخورد ناگهانی و ایجاد صدا جلوگیری کند.</li>
-            </ul>
+            <section>
+                <h2>۱. مشخصات فنی دقیق و متریال اجزا</h2>
+                <p><b>مستندات ساختاری و مهندسی قطعات لولای هوشمند:</b><br>
+                مکانیزم لولای هوشمند همزمان (Bus-Door / Pocket Door) از یک ساختار چندپارچه مکانیکی تشکیل شده است. اجزای اصلی این مکانیزم و مشخصات متریال آن‌ها به شرح زیر تبیین می‌گردد:</p>
+                <ul>
+                    <li><strong>ریل‌های منحنی هدایت‌گر (Curved Guide Rails):</strong> این ریل‌ها وظیفه تعیین مسیر دقیق حرکت ترکیبی (انتقالی-دورانی) درب را بر عهده دارند. به منظور تحمل نیروهای دینامیکی حاصل از شتاب اولیه حرکت و جلوگیری از دفرمه شدن در طول زمان، این قطعه از جنس آلومینیوم آنودایز شده (گرید صنعتی) یا فولاد ضدزنگ (Stainless Steel 304) با پوشش سخت‌کاری‌شده در نظر گرفته شده است.</li>
+                    <li><strong>واگن‌ها و چرخ‌های غلتکی (Roller Carriages):</strong> برای تضمین حرکت روان و بی‌صدا در داخل ریل‌ها، غلتک‌های این بخش از نوعی پلیمر ساخته شده‌اند که ویژگی منحصربه‌فرد این پلیمر، خاصیت خودروان‌کاری (Self-Lubricating)، مقاومت بسیار بالا در برابر سایش و ضریب اصطکاک ناچیز است که نیاز به روغن‌کاری دوره‌ای را کاملاً حذف می‌کند.</li>
+                    <li><strong>بازوی مفصل داخلی و مکانیسم چهارمیله‌ای (Four-Bar Linkage Internal Arm):</strong> بازوی اصلی که انتقال‌دهنده گشتاور و کنترل‌کننده زاویه چرخش درب است، به روش ماشین‌کاری CNC از جنس فولاد ساختمانی با استحکام بالا تولید می‌شود تا در برابر ممان‌های خمشی ناشی از وزن درب‌های سنگین، کمترین میزان انحراف را داشته باشد.</li>
+                    <li><strong>صفحه اتصال درب و بدنه نگهدارنده:</strong> این قطعات واسط که لولا را به بدنه جانبی کابینت و جداره داخلی درب متصل می‌کنند، از ورق‌های فولادی پرس‌شده با ضخامت بالا به همراه پوشش گالوانیزه جهت پیشگیری از خوردگی و زنگ‌زدگی در محیط‌های مرطوب (مانند آشپزخانه) طراحی شده‌اند.</li>
+                    <li><strong>سیستم دمپر نرم‌حرکت (Soft-Close Shock Absorbers):</strong> در انتهای کورس حرکت خطی و چرخشی، یک جفت دمپر هیدرولیکی مینیاتوری تعبیه شده است تا انرژی جنبشی درب را در چند سانتی‌متر پایانی مستهلک کرده و از برخورد ناگهانی و ایجاد صدا جلوگیری کند.</li>
+                </ul>
+            </section>
 
-            <h2>۲. مزایای محصول و حل چالش‌های مکانیزم‌های موجود</h2>
-            <p><b>تحلیل مزایای در مقایسه با راهکارهای موجود:</b><br>
-            در طراحی‌های مدرن و فضاهای مینیاتوری، لولاهای سنتی و حتی مکانیزم‌های پیشرفته بین‌المللی با چالش‌های ساختاری مواجه هستند که لولای هوشمند همزمان موفق به رفع تقریبی آن‌ها شده است:</p>
-            <ul>
-                <li><strong>حذف شعاع حرکتی بازشو (Clearance Space):</strong> لولاهای متداول ۹۰ و ۱۸۰ درجه بازار، نیازمند فضای مانور وسیعی در جلوی کابینت هستند که حرکت را در راهروهای تنگ یا آشپزخانه‌های کوچک مختل می‌کند. مکانیزم پیشرفته ما با ترکیب همزمان حرکت خطی و دورانی، درب را به داخل حجم مرده‌ی خود کابینت هدایت می‌کند و شعاع مزاحم را به حداقل می‌رساند.</li>
-                <li><strong>رفع محدودیت حرکت عمودی (مقایسه با سیستم‌های جک بالابر):</strong> جک‌های پیشرفته حرکت درب را به سمت بالا هدایت می‌کنند. این سیستم‌ها اولاً چالش بازشوی محور عمودی را حل نمی‌کنند و ثانیاً برای کابینت‌های نزدیک به سقف یا افرادی با قد کوتاه‌تر، محدودیت دسترسی شدید ایجاد می‌کنند. لولای طراحی‌شده توسط تیم ما، با حرکت در محور افقی و پنهان‌سازی درب در کناره‌ها، دسترسی ۱۰۰ درصدی به داخل کابینت را بدون محدودیت ارتفاع فراهم می‌سازد.</li>
-                <li><strong>بهینه‌سازی توزیع جرم و طول عمر مکانیکی:</strong> استفاده هوشمندانه از ترکیب پلیمرهای سبک و آلومینیوم آنودایز شده در بخش‌های متحرک، گشتاور وارده بر اتصالات دیواره کابینت را به شدت کاهش داده و بر خلاف لولاهای سنگین تمام‌فولادی، مانع از افتادگی یا دفرمه شدن درب در درازمدت می‌شود.</li>
-            </ul>
+            <section>
+                <h2>۲. مزایای محصول و حل چالش‌های مکانیزم‌های موجود</h2>
+                <p><b>تحلیل مزایای در مقسه با راهکارهای موجود:</b><br>
+                در طراحی‌های مدرن و فضاهای مینیاتوری، لولاهای سنتی و حتی مکانیزم‌های پیشرفته بین‌المللی با چالش‌های ساختاری مواجه هستند که لولای هوشمند همزمان موفق به رفع تقریبی آن‌ها شده است:</p>
+                <ul>
+                    <li><strong>حذف شعاع حرکتی بازشو (Clearance Space):</strong> لولاهای متداول ۹۰ و ۱۸۰ درجه بازار، نیازمند فضای مانور وسیعی در جلوی کابینت هستند که حرکت را در راهروهای تنگ یا آشپزخانه‌های کوچک مختل می‌کند. مکانیزم پیشرفته ما با ترکیب همزمان حرکت خطی و دورانی, درب را به داخل حجم مرده‌ی خود کابینت هدایت می‌کند و شعاع مزاحم را به حداقل می‌رساند.</li>
+                    <li><strong>رفع محدودیت حرکت عمودی (مقایسه با سیستم‌های جک بالابر):</strong> جک‌های پیشرفته حرکت درب را به سمت بالا هدایت می‌کنند. این سیستم‌ها اولاً چالش بازشوی محور عمودی را حل نمی‌کنند و ثانیاً برای کابینت‌های نزدیک به سقف یا افرادی با قد کوتاه‌تر، محدودیت دسترسی شدید ایجاد می‌کنند. لولای طراحی‌شده توسط تیم ما، با حرکت در محور افقی و پنهان‌سازی درب در کناره‌ها، دسترسی ۱۰۰ درصدی به داخل کابینت را بدون محدودیت ارتفاع فراهم می‌سازد.</li>
+                    <li><strong>بهینه‌سازی توزیع جرم و طول عمر مکانیکی:</strong> استفاده هوشمندانه از ترکیب پلیمرهای سبک و آلومینیوم آنودایز شده در بخش‌های متحرک، گشتاور وارده بر اتصالات دیواره کابینت را به شدت کاهش داده و بر خلاف لولاهای سنگین تمام‌فولادی، مانع از افتادگی یا دفرمه شدن درب در درازمدت می‌شود.</li>
+                </ul>
+            </section>
 
-            <h2>۳. نحوه دسترسی و تهیه محصول</h2>
-            <p><b>صلاحیت تجاری و فرآیند سفارش‌دهی:</b><br>
-            پروژه طراحی و توسعه لولای هوشمند همزمان در حال حاضر در فاز ارزیابی نمونه اولیه (MVP) و بومی‌سازی صنعتی در دانشکده مهندسی مکانیک دانشگاه تهران قرار دارد. صنایع کابینت‌سازی و سرمایه‌گذاران محترم جهت کسب اطلاعات فنی بیشتر، دریافت نقشه‌های سه‌بعدی متناسب با ابعاد سفارشی، یا هماهنگی برای تولید انبوه می‌توانند مستقیماً با مدیریت محصول تماس حاصل فرمایند.</p>
-            <p>جهت برقراری ارتباط و ثبت سفارش، به بخش اطلاعات تماس بهرام جدید بنیاد (Product Manager) در صفحه اصلی مراجعه فرمایید یا از طریق دکمه زیر به صورت مستقیم به کارت ویزیت ایشان منتقل شوید:</p>
-            
-            <a href="index.html#team" class="btn-redirect">ارتباط با مدیریت محصول (بهرام جدید بنیاد)</a>
+            <section>
+                <h2>۳. نحوه دسترسی و تهیه محصول</h2>
+                <p><b>صلاحیت تجاری و فرآیند سفارش‌دهی:</b><br>
+                پروژه طراحی و توسعه لولای هوشمند همزمان در حال حاضر در فاز ارزیابی نمونه اولیه (MVP) و بومی‌سازی صنعتی در دانشکده مهندسی مکانیک دانشگاه تهران قرار دارد. صنایع کابینت‌سازی و سرمایه‌گذاران محترم جهت کسب اطلاعات فنی بیشتر، دریافت نقشه‌های سه‌بعدی متناسب با ابعاد سفارشی، یا هماهنگی برای تولید انبوه می‌توانند مستقیماً با مدیریت محصول تماس حاصل فرمایند.</p>
+                <p>جهت برقراری ارتباط و ثبت سفارش، به بخش اطلاعات تماس بهرام جدید بنیاد (Product Manager) در صفحه اصلی مراجعه فرمایید یا از طریق دکمه زیر به صورت مستقیم به کارت ویزیت ایشان منتقل شوید:</p>
+                
+                <a href="index.html#team" class="btn-redirect">ارتباط با مدیریت محصول (بهرام جدید بنیاد)</a>
+            </section>
 
-            <br>
-            <a href="index.html" class="back-btn">← بازگشت به صفحه اصلی</a>
+            <div style="text-align: left;">
+                <a href="index.html" class="back-btn">← بازگشت به صفحه اصلی</a>
+            </div>
         </article>
     </div>
 
     <footer>
-        <p>© 1405 | بخش اطلاعات و مشخصات فنی مکانیزم لولای هوشمند</p>
+        <p>© 1405 | بخش اطلاعات و مشخصات فنی مکانیزم لولای هوشمند | دانشگاه تهران</p>
     </footer>
 </body>
 </html>
