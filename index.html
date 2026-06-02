@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مکانیزم لولای هوشمند همزمان | Bus-Door Cabinet Hinge</title>
     <style>
-        /* بارگذاری فونت استاندارد وزیر متن برای کل سایت */
         @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap');
 
         * {
@@ -80,16 +79,26 @@
             text-decoration: none;
             border-radius: 5px;
             font-weight: bold;
-            transition: background 0.3s ease;
+            transition: background 0.3s ease, transform 0.2s;
             border: none;
             cursor: pointer;
+            text-align: center;
         }
 
         .btn:hover {
             background-color: #0f766e;
+            transform: translateY(-2px);
         }
 
-        /* هدر و منو */
+        /* استایل خاص برای دکمه ثانویه اطلاعات فنی */
+        .btn-blue {
+            background-color: #2563eb;
+        }
+
+        .btn-blue:hover {
+            background-color: #1d4ed8;
+        }
+
         header {
             background-color: var(--primary-color);
             color: var(--white);
@@ -138,7 +147,6 @@
             color: #38bdf8;
         }
 
-        /* بخش هیرو */
         .hero-section {
             background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
             color: var(--white);
@@ -169,9 +177,11 @@
             color: #cbd5e1;
         }
 
+        /* کادر دربرگیرنده دو دکمه کاتالوگ و اطلاعات فنی */
         .hero-buttons {
             display: flex;
             gap: 15px;
+            flex-wrap: wrap;
         }
 
         .hero-visual {
@@ -181,7 +191,6 @@
             align-items: center;
         }
 
-        /* انیمیشن مکانیکی جدید و مهندسی لولا و ریل */
         .mechanism-simulator {
             width: 300px;
             height: 220px;
@@ -193,7 +202,6 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
-        /* ریل منحنی لولا */
         .mech-track {
             position: absolute;
             top: 40px;
@@ -206,7 +214,6 @@
             opacity: 0.4;
         }
 
-        /* بازوی مکانیکی صلب */
         .mech-arm {
             position: absolute;
             width: 110px;
@@ -220,7 +227,6 @@
             box-shadow: 0 0 10px rgba(45, 212, 191, 0.5);
         }
 
-        /* غلتک/واگن متحرک متصل به بازو */
         .mech-arm::before {
             content: '';
             position: absolute;
@@ -233,7 +239,6 @@
             border-radius: 50%;
         }
 
-        /* درب متصل به لولا که حرکت انتقالی و چرخشی دارد */
         .mech-door {
             position: absolute;
             width: 12px;
@@ -257,19 +262,16 @@
             50% { transform: rotate(45deg); }
         }
 
-        /* سیستم گرید ۲ سطحی متوازن برای ۵ عضو */
         .team-grid {
             display: grid;
             grid-template-columns: repeat(6, 1fr);
             gap: 25px;
         }
 
-        /* ردیف اول: ۳ کارت اول، هر کدام ۲ ستون اشغال می‌کنند */
         .member-card.row-1 {
             grid-column: span 2;
         }
 
-        /* ردیف دوم: ۲ کارت آخر، برای وسط‌چین شدن هر کدام ۳ ستون اشغال می‌کنند اما با افست */
         .member-card.row-2-left {
             grid-column: 2 / span 2;
         }
@@ -325,7 +327,6 @@
             margin-bottom: 20px;
         }
 
-        /* عریض‌تر کردن کادر اطلاعات ایمیل و تلفن جهت جاگیری کامل متن بدون شکستگی */
         .vcard-info {
             text-align: right;
             background: #f8fafc;
@@ -339,9 +340,9 @@
 
         .vcard-info div {
             margin-bottom: 8px;
-            white-space: nowrap; /* ملوگیری از رفتن جیمیل به سطر بعدی */
+            white-space: nowrap;
             overflow: hidden;
-            text-overflow: ellipsis; /* در صورت لزوم کوتاه کردن امن */
+            text-overflow: ellipsis;
         }
 
         .vcard-info div:last-child {
@@ -355,7 +356,6 @@
             font-weight: 700;
         }
 
-        /* ارتباط با ما و فوتر */
         .dark-section-pitch {
             background: var(--footer-bg);
             color: var(--white);
@@ -430,8 +430,8 @@
             <nav>
                 <ul>
                     <li><a href="index.html">خانه</a></li>
-                    <li><a href="catalog.html">کاتالوگ فنی</a></li>
-                    <li><a href="#specifications">مشخصات فنی</a></li>
+                    <li><a href="catalog.html">کاتالوگ محصول</a></li>
+                    <li><a href="specifications.html">مشخصات فنی</a></li>
                     <li><a href="#contact">ارتباط با ما</a></li>
                 </ul>
             </nav>
@@ -444,7 +444,8 @@
                 <h1>انقلابی در بهینه‌سازی فضای آشپزخانه</h1>
                 <p>طراحی و توسعه اولین لولای هوشمند با مکانیزم ترکیبی حرکت به داخل و چرخش همزمان (Bus-Door / Pocket Door) برای فضاهای مینیاتوری و مدرن.</p>
                 <div class="hero-buttons">
-                    <a href="catalog.html" class="btn">مشاهده کاتالوگ فنی</a>
+                    <a href="catalog.html" class="btn">مشاهده کاتالوگ محصول</a>
+                    <a href="specifications.html" class="btn btn-blue">مشاهده اطلاعات فنی</a>
                 </div>
             </div>
             <div class="hero-visual">
