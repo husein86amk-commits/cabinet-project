@@ -12,7 +12,7 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Vazirmatn', Tahoma, sans-serif;
-            scroll-behavior: smooth; /* اسکرول نرم برای منوی کارت ویزیت دیجیتال */
+            scroll-behavior: smooth;
         }
 
         :root {
@@ -185,7 +185,7 @@
 
         .hero-visual {
             flex: 1;
-            display: flex;
+            display: center;
             justify-content: center;
             align-items: center;
         }
@@ -412,7 +412,6 @@
             border-color: var(--secondary-color);
         }
 
-        /* استایل اختصاصی پاپ‌آپ ثبت پیام موفقیت‌آمیز */
         .success-message {
             display: none;
             background-color: #065f46;
@@ -445,7 +444,7 @@
                 <ul>
                     <li><a href="index.html">خانه</a></li>
                     <li><a href="catalog.html">کاتالوگ محصول</a></li>
-                    <li><a href="specifications.html">مشخصات فنی</a></li>
+                    <li><a href="specifications.html">اطلاعات فنی</a></li>
                     <li><a href="#team">کارت ویزیت دیجیتال</a></li>
                     <li><a href="#contact">ارتباط با ما</a></li>
                 </ul>
@@ -507,7 +506,7 @@
                     <h3>علی قره چایی</h3>
                     <p class="role">HR Manager (مدیر منابع انسانی)</p>
                     <div class="vcard-info">
-                        <div>📞 <b>تلفن:</b> 09926192902</div>
+                        <div>📞 <b>تلفen:</b> 09926192902</div>
                         <div>✉️ <b>ایمیل:</b> ali.gharechaei0@gmail.com</div>
                     </div>
                     <div class="skills">MATLAB | Office | English</div>
@@ -566,16 +565,10 @@
 
     <script>
         document.getElementById('orderForm').addEventListener('submit', function(e) {
-            e.preventDefault(); // جلوگیری از رفرش صفحه
-            
-            // نمایش پیام موفقیت
+            e.preventDefault();
             var msgBox = document.getElementById('successMsg');
             msgBox.style.display = 'block';
-            
-            // پاک کردن فیلدهای فرم پس از ارسال
             this.reset();
-            
-            // مخفی شدن خودکار پیام پس از ۵ ثانیه
             setTimeout(function() {
                 msgBox.style.opacity = '0';
                 setTimeout(function() {
