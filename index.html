@@ -12,6 +12,7 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Vazirmatn', Tahoma, sans-serif;
+            scroll-behavior: smooth; /* اسکرول نرم برای منوی کارت ویزیت دیجیتال */
         }
 
         :root {
@@ -90,7 +91,6 @@
             transform: translateY(-2px);
         }
 
-        /* استایل خاص برای دکمه ثانویه اطلاعات فنی */
         .btn-blue {
             background-color: #2563eb;
         }
@@ -133,7 +133,7 @@
         }
 
         nav ul li {
-            margin-right: 25px;
+            margin-right: 20px;
         }
 
         nav ul li a {
@@ -177,7 +177,6 @@
             color: #cbd5e1;
         }
 
-        /* کادر دربرگیرنده دو دکمه کاتالوگ و اطلاعات فنی */
         .hero-buttons {
             display: flex;
             gap: 15px;
@@ -395,6 +394,7 @@
             border-radius: 8px;
             box-shadow: 0 8px 32px rgba(0,0,0,0.2);
             border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
         }
 
         .contact-form input, .contact-form textarea {
@@ -410,6 +410,20 @@
         .contact-form input:focus, .contact-form textarea:focus {
             outline: none;
             border-color: var(--secondary-color);
+        }
+
+        /* استایل اختصاصی پاپ‌آپ ثبت پیام موفقیت‌آمیز */
+        .success-message {
+            display: none;
+            background-color: #065f46;
+            color: #34d399;
+            border: 1px solid #047857;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
         }
 
         footer {
@@ -432,6 +446,7 @@
                     <li><a href="index.html">خانه</a></li>
                     <li><a href="catalog.html">کاتالوگ محصول</a></li>
                     <li><a href="specifications.html">مشخصات فنی</a></li>
+                    <li><a href="#team">کارت ویزیت دیجیتال</a></li>
                     <li><a href="#contact">ارتباط با ما</a></li>
                 </ul>
             </nav>
@@ -531,6 +546,8 @@
                 <p>📍 دانشکده مهندسی مکانیک - پروژه درآمدی بر مهندسی مکانیک (دکتر چینی)</p>
             </div>
             <div class="contact-form">
+                <div id="successMsg" class="success-message">پیام شما ثبت گردید.</div>
+                
                 <form id="orderForm">
                     <input type="text" placeholder="نام و نام خانوادگی" required>
                     <input type="email" placeholder="ایمیل شما" required>
@@ -546,5 +563,27 @@
             <p>© 1405 | طراحی و توسعه توسط تیم پروژه لولای هوشمند همزمان. تمامی حقوق محفوظ است.</p>
         </div>
     </footer>
+
+    <script>
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // جلوگیری از رفرش صفحه
+            
+            // نمایش پیام موفقیت
+            var msgBox = document.getElementById('successMsg');
+            msgBox.style.display = 'block';
+            
+            // پاک کردن فیلدهای فرم پس از ارسال
+            this.reset();
+            
+            // مخفی شدن خودکار پیام پس از ۵ ثانیه
+            setTimeout(function() {
+                msgBox.style.opacity = '0';
+                setTimeout(function() {
+                    msgBox.style.display = 'none';
+                    msgBox.style.opacity = '1';
+                }, 500);
+            }, 5000);
+        });
+    </script>
 </body>
 </html>
