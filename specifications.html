@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مشخصات فنی و ساختار محصول | MechHinge</title>
+    <title>اطلاعات فنی و ساختار محصول | MechHinge</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap');
 
@@ -65,15 +65,43 @@
             font-weight: 700;
         }
 
-        .placeholder-box {
-            background: #f1f5f9;
-            border: 2px dashed #cbd5e1;
-            padding: 40px;
-            text-align: center;
-            border-radius: 8px;
-            color: #64748b;
-            font-size: 1.2rem;
-            margin-top: 30px;
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.4rem;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+        }
+
+        h2::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 25px;
+            background-color: #2563eb;
+            border-radius: 2px;
+        }
+
+        p {
+            font-size: 1.05rem;
+            color: #4b5563;
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            padding-right: 25px;
+            margin-bottom: 25px;
+        }
+
+        li {
+            font-size: 1.05rem;
+            color: #4b5563;
+            margin-bottom: 12px;
+            text-align: justify;
         }
 
         .image-container {
@@ -82,35 +110,37 @@
             justify-content: center;
         }
 
-        .img-box {
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
+        .img-box-placeholder {
+            background: #f1f5f9;
+            border: 2px dashed #cbd5e1;
             border-radius: 8px;
-            padding: 12px;
+            padding: 50px 20px;
             text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
             width: 100%;
             max-width: 600px;
-        }
-
-        .img-box img {
-            width: 100%;
-            height: auto;
-            max-height: 400px;
-            object-fit: contain;
-            border-radius: 6px;
-        }
-
-        .caption {
-            font-size: 0.85rem;
-            color: #6b7280;
-            margin-top: 10px;
+            color: #64748b;
             font-weight: bold;
+        }
+
+        .btn-redirect {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+            margin-top: 15px;
+        }
+
+        .btn-redirect:hover {
+            background-color: #0f766e;
         }
 
         .back-btn {
             display: inline-block;
-            margin-top: 30px;
+            margin-top: 40px;
             background-color: var(--primary-color);
             color: var(--white);
             padding: 10px 20px;
@@ -118,6 +148,7 @@
             border-radius: 5px;
             font-weight: bold;
             transition: background 0.2s;
+            border: none;
         }
 
         footer {
@@ -134,7 +165,7 @@
 
     <header>
         <div class="container navbar">
-            <div class="logo">MechHinge <span>مشخصات فنی</span></div>
+            <div class="logo">MechHinge <span>اطلاعات فنی</span></div>
             <nav>
                 <ul>
                     <li><a href="index.html" style="color:white; text-decoration:none; font-weight:bold;">بازگشت به خانه</a></li>
@@ -145,20 +176,43 @@
 
     <div class="container">
         <article class="spec-paper">
-            <h1>مستندات مشخصات فنی و اجزای مکانیکی</h1>
+            <h1>مستندات اطلاعات فنی و اجزای مکانیکی</h1>
 
             <div class="image-container">
-                <div class="img-box">
-                    <img src="exploded-view.png" alt="نمای انفجاری قطعات" onerror="this.src='https://via.placeholder.com/600x400?text=Exploded+View+Image';">
-                    <div class="caption">نمای انفجاری اجزا، اتصالات ریل و واگن‌های غلتکی (BOM)</div>
+                <div class="img-box-placeholder">
+                    📸 [محل قرارگیری تصویر بخش اطلاعات فنی]<br>
+                    <span style="font-size: 0.85rem; font-weight: normal; color: #94a3b8; display: block; margin-top: 8px;">پس از ارسال عکس توسط شما، در این کادر بارگذاری خواهد شد.</span>
                 </div>
             </div>
 
-            <div class="placeholder-box">
-                🛠️ <b>محل قرارگیری جداول مهندسی و تحلیل‌های مالی (BOM)</b><br>
-                <p style="font-size: 1rem; color: #94a3b8; margin-top: 10px;">متون، ابعاد سینماتیکی، جداول قیمت مواد اولیه و ریسک‌ها در فاز بعدی پس از ارسال شما کاملاً در این بخش چیده خواهند شد.</p>
-            </div>
+            <h2>۱. مشخصات فنی دقیق و متریال اجزا</h2>
+            <p><b>مستندات ساختاری و مهندسی قطعات لولای هوشمند:</b><br>
+            مکانیزم لولای هوشمند همزمان (Bus-Door / Pocket Door) از یک ساختار چندپارچه مکانیکی تشکیل شده است. اجزای اصلی این مکانیزم و مشخصات متریال آن‌ها به شرح زیر تبیین می‌گردد:</p>
+            <ul>
+                <li><strong>ریل‌های منحنی هدایت‌گر (Curved Guide Rails):</strong> این ریل‌ها وظیفه تعیین مسیر دقیق حرکت ترکیبی (انتقالی-دورانی) درب را بر عهده دارند. به منظور تحمل نیروهای دینامیکی حاصل از شتاب اولیه حرکت و جلوگیری از دفرمه شدن در طول زمان، این قطعه از جنس آلومینیوم آنودایز شده (گرید صنعتی) یا فولاد ضدزنگ (Stainless Steel 304) با پوشش سخت‌کاری‌شده در نظر گرفته شده است.</li>
+                <li><strong>واگن‌ها و چرخ‌های غلتکی (Roller Carriages):</strong> برای تضمین حرکت روان و بی‌صدا در داخل ریل‌ها، غلتک‌های این بخش از نوعی پلیمر ساخته شده‌اند که ویژگی منحصربه‌فرد این پلیمر، خاصیت خودروان‌کاری (Self-Lubricating)، مقاومت بسیار بالا در برابر سایش و ضریب اصطکاک ناچیز است که نیاز به روغن‌کاری دوره‌ای را کاملاً حذف می‌کند.</li>
+                <li><strong>بازوی مفصل داخلی و مکانیسم چهارمیله‌ای (Four-Bar Linkage Internal Arm):</strong> بازوی اصلی که انتقال‌دهنده گشتاور و کنترل‌کننده زاویه چرخش درب است، به روش ماشین‌کاری CNC از جنس فولاد ساختمانی با استحکام بالا تولید می‌شود تا در برابر ممان‌های خمشی ناشی از وزن درب‌های سنگین، کمترین میزان انحراف را داشته باشد.</li>
+                <li><strong>صفحه اتصال درب و بدنه نگهدارنده:</strong> این قطعات واسط که لولا را به بدنه جانبی کابینت و جداره داخلی درب متصل می‌کنند، از ورق‌های فولادی پرس‌شده با ضخامت بالا به همراه پوشش گالوانیزه جهت پیشگیری از خوردگی و زنگ‌زدگی در محیط‌های مرطوب (مانند آشپزخانه) طراحی شده‌اند.</li>
+                <li><strong>سیستم دمپر نرم‌حرکت (Soft-Close Shock Absorbers):</strong> در انتهای کورس حرکت خطی و چرخشی، یک جفت دمپر هیدرولیکی مینیاتوری تعبیه شده است تا انرژی جنبشی درب را در چند سانتی‌متر پایانی مستهلک کرده و از برخورد ناگهانی و ایجاد صدا جلوگیری کند.</li>
+            </ul>
 
+            <h2>۲. مزایای محصول و حل چالش‌های مکانیزم‌های موجود</h2>
+            <p><b>تحلیل مزایای در مقایسه با راهکارهای موجود:</b><br>
+            در طراحی‌های مدرن و فضاهای مینیاتوری، لولاهای سنتی و حتی مکانیزم‌های پیشرفته بین‌المللی با چالش‌های ساختاری مواجه هستند که لولای هوشمند همزمان موفق به رفع تقریبی آن‌ها شده است:</p>
+            <ul>
+                <li><strong>حذف شعاع حرکتی بازشو (Clearance Space):</strong> لولاهای متداول ۹۰ و ۱۸۰ درجه بازار، نیازمند فضای مانور وسیعی در جلوی کابینت هستند که حرکت را در راهروهای تنگ یا آشپزخانه‌های کوچک مختل می‌کند. مکانیزم پیشرفته ما با ترکیب همزمان حرکت خطی و دورانی، درب را به داخل حجم مرده‌ی خود کابینت هدایت می‌کند و شعاع مزاحم را به حداقل می‌رساند.</li>
+                <li><strong>رفع محدودیت حرکت عمودی (مقایسه با سیستم‌های جک بالابر):</strong> جک‌های پیشرفته حرکت درب را به سمت بالا هدایت می‌کنند. این سیستم‌ها اولاً چالش بازشوی محور عمودی را حل نمی‌کنند و ثانیاً برای کابینت‌های نزدیک به سقف یا افرادی با قد کوتاه‌تر، محدودیت دسترسی شدید ایجاد می‌کنند. لولای طراحی‌شده توسط تیم ما، با حرکت در محور افقی و پنهان‌سازی درب در کناره‌ها، دسترسی ۱۰۰ درصدی به داخل کابینت را بدون محدودیت ارتفاع فراهم می‌سازد.</li>
+                <li><strong>بهینه‌سازی توزیع جرم و طول عمر مکانیکی:</strong> استفاده هوشمندانه از ترکیب پلیمرهای سبک و آلومینیوم آنودایز شده در بخش‌های متحرک، گشتاور وارده بر اتصالات دیواره کابینت را به شدت کاهش داده و بر خلاف لولاهای سنگین تمام‌فولادی، مانع از افتادگی یا دفرمه شدن درب در درازمدت می‌شود.</li>
+            </ul>
+
+            <h2>۳. نحوه دسترسی و تهیه محصول</h2>
+            <p><b>صلاحیت تجاری و فرآیند سفارش‌دهی:</b><br>
+            پروژه طراحی و توسعه لولای هوشمند همزمان در حال حاضر در فاز ارزیابی نمونه اولیه (MVP) و بومی‌سازی صنعتی در دانشکده مهندسی مکانیک دانشگاه تهران قرار دارد. صنایع کابینت‌سازی و سرمایه‌گذاران محترم جهت کسب اطلاعات فنی بیشتر، دریافت نقشه‌های سه‌بعدی متناسب با ابعاد سفارشی، یا هماهنگی برای تولید انبوه می‌توانند مستقیماً با مدیریت محصول تماس حاصل فرمایند.</p>
+            <p>جهت برقراری ارتباط و ثبت سفارش، به بخش اطلاعات تماس بهرام جدید بنیاد (Product Manager) در صفحه اصلی مراجعه فرمایید یا از طریق دکمه زیر به صورت مستقیم به کارت ویزیت ایشان منتقل شوید:</p>
+            
+            <a href="index.html#team" class="btn-redirect">ارتباط با مدیریت محصول (بهرام جدید بنیاد)</a>
+
+            <br>
             <a href="index.html" class="back-btn">← بازگشت به صفحه اصلی</a>
         </article>
     </div>
