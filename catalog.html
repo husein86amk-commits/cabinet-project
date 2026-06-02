@@ -18,27 +18,40 @@
             --primary-color: #1e3a8a;
             --secondary-color: #0d9488;
             --dark-color: #1f2937;
-            --light-color: #f8fafc;
             --white: #ffffff;
         }
 
+        /* پس‌زمینه پویا و انیمیشنی متحرک */
         body {
-            background-color: var(--light-color);
+            background: linear-gradient(-45deg, #f1f5f9, #e2e8f0, #e0f2fe, #f0fdfa);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
             color: var(--dark-color);
             line-height: 1.8;
+            min-height: 100vh;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .container {
-            width: 80%;
+            width: 85%;
             max-width: 1000px;
             margin: 0 auto;
-            padding: 50px 0;
+            padding: 40px 0;
         }
 
         header {
-            background-color: var(--primary-color);
+            background: linear-gradient(135deg, var(--primary-color) 0%, #0f172a 100%);
             color: var(--white);
             padding: 20px 0;
+            box-shadow: 0 4px 20px rgba(30, 58, 138, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         .navbar {
@@ -47,12 +60,34 @@
             align-items: center;
         }
 
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .logo span {
+            font-size: 0.85rem;
+            color: #93c5fd;
+            margin-right: 10px;
+            font-weight: 400;
+        }
+
+        /* افکت شیشه‌ای مدرن برای بدنه کاتالوگ */
         .catalog-paper {
-            background: var(--white);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             padding: 50px;
-            border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.6);
             margin-top: 30px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         h1 {
@@ -63,61 +98,92 @@
             margin-bottom: 40px;
             text-align: center;
             font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
 
         h2 {
             color: var(--primary-color);
             font-size: 1.4rem;
-            margin-top: 35px;
-            margin-bottom: 15px;
+            margin-top: 40px;
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             font-weight: 700;
+            transition: transform 0.3s;
+        }
+
+        .catalog-paper section:hover h2 {
+            transform: translateX(-5px);
         }
 
         h2::before {
             content: '';
             display: inline-block;
-            width: 8px;
-            height: 25px;
-            background-color: var(--secondary-color);
-            border-radius: 2px;
+            width: 6px;
+            height: 24px;
+            background: linear-gradient(to bottom, var(--secondary-color), #2dd4bf);
+            border-radius: 4px;
         }
 
         p {
             font-size: 1.05rem;
-            color: #4b5563;
+            color: #374151;
             text-align: justify;
             margin-bottom: 20px;
         }
 
         ul {
-            padding-right: 25px;
+            padding-right: 20px;
             margin-bottom: 25px;
+            list-style: none;
         }
 
+        /* انیمیشن و افکت جذاب برای آیتم‌های لیست */
         li {
             font-size: 1.05rem;
-            color: #4b5563;
-            margin-bottom: 10px;
+            color: #374151;
+            margin-bottom: 14px;
+            position: relative;
+            padding-right: 20px;
+            transition: transform 0.2s;
+        }
+
+        li:hover {
+            transform: translateX(-3px);
+            color: #000;
+        }
+
+        li::before {
+            content: '✦';
+            position: absolute;
+            right: 0;
+            color: var(--secondary-color);
+            font-size: 0.9rem;
         }
 
         .image-container {
-            margin: 35px 0;
+            margin: 40px 0;
             display: flex;
             justify-content: center;
         }
 
+        /* باکس تصویر تعاملی و درخشان */
         .img-box {
             background: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-radius: 8px;
-            padding: 12px;
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            border-radius: 16px;
+            padding: 16px;
             text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
             width: 100%;
-            max-width: 600px;
+            max-width: 650px;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .img-box:hover {
+            transform: scale(1.02);
+            box-shadow: 0 20px 40px rgba(13, 148, 136, 0.15);
         }
 
         .img-box img {
@@ -125,35 +191,41 @@
             height: auto;
             max-height: 400px;
             object-fit: contain;
-            border-radius: 6px;
+            border-radius: 10px;
         }
 
         .caption {
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             color: #6b7280;
-            margin-top: 10px;
+            margin-top: 12px;
             font-weight: bold;
         }
 
         .back-btn {
             display: inline-block;
-            margin-top: 30px;
-            background-color: var(--primary-color);
+            margin-top: 20px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #2563eb 100%);
             color: var(--white);
-            padding: 10px 20px;
+            padding: 12px 28px;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 8px;
             font-weight: bold;
-            transition: background 0.2s;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+            transition: all 0.3s;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+            background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
         }
 
         footer {
             text-align: center;
-            padding: 30px 0;
-            color: #94a3b8;
+            padding: 40px 0 20px 0;
+            color: #64748b;
             font-size: 0.85rem;
-            margin-top: 50px;
-            border-top: 1px solid #e2e8f0;
+            margin-top: 30px;
         }
     </style>
 </head>
@@ -163,9 +235,7 @@
         <div class="container navbar">
             <div class="logo">MechHinge <span>کاتالوگ محصول</span></div>
             <nav>
-                <ul>
-                    <li><a href="index.html" style="color:white; text-decoration:none; font-weight:bold;">بازگشت به خانه</a></li>
-                </ul>
+                <a href="index.html" style="color:white; text-decoration:none; font-weight:bold; font-size: 0.95rem; transition: color 0.2s;" onmouseover="this.style.color='#38bdf8'" onmouseout="this.style.color='white'">بازگشت به خانه ←</a>
             </nav>
         </div>
     </header>
@@ -179,35 +249,45 @@
                     <img src="mechanism-view.png" alt="مکانیزم روی دیواره کابینت" onerror="this.src='mechanism-view..png.png';">
                     <div class="caption">نمای رندر شده سازه و اتصالات صلب لولا روی بدنه جانبی</div>
                 </div>
-                </div>
+            </div>
 
-            <h2>۱. معرفی و بیان نوآوری طرح</h2>
-            <p>مکانیزم لولای هوشمند همزمان (Bus-Door / Pocket Door) توسعه‌یافته توسط تیم مهندسی ما، یک راهکار پیشرفته سینماتیکی برای حل چالش محدودیت فضای مانور (Clearance Space) در محیط‌های مینیاتوری و طراحی‌های مینیمال مدرن است. بر خلاف لولاهای سنتی بازار که صرفاً یک حرکت دورانی ساده ۹۰ یا ۱۸۰ درجه حول یک محور ثابت ایجاد می‌کنند، این سازه با تلفیق همزمان حرکت انتقالی (خطی) و چرخشی، درب را هنگام باز شدن به درون حجم مرده‌ی کابینت یا کمد هدایت می‌کند. این فرآیند باعث می‌شود شعاع مزاحم بازشوی درب کاملاً حذف شده و راهروها یا فضاهای تنگ آشپزخانه همواره آزاد بمانند.</p>
+            <section>
+                <h2>۱. معرفی و بیان نوآوری طرح</h2>
+                <p>مکانیزم لولای هوشمند همزمان (Bus-Door / Pocket Door) توسعه‌یافته توسط تیم مهندسی ما، یک راهکار پیشرفته سینماتیکی برای حل چالش محدودیت فضای مانور (Clearance Space) در محیط‌های مینیاتوری و طراحی‌های مینیمال مدرن است. بر خلاف لولاهای سنتی بازار که صرفاً یک حرکت دورانی ساده ۹۰ یا ۱۸۰ درجه حول یک محور ثابت ایجاد می‌کنند، این سازه با تلفیق همزمان حرکت انتقالی (خطی) و چرخشی، درب را هنگام باز شدن به درون حجم مرده‌ی کابینت یا کمد هدایت می‌کند. این فرآیند باعث می‌شود شعاع مزاحم بازشوی درب کاملاً حذف شده و راهروها یا فضاهای تنگ آشپزخانه همواره آزاد بمانند.</p>
+            </section>
 
-            <h2>۲. مبانی فنی و الهامات بین‌المللی مکانیزم</h2>
-            <p>طراحی دستاورد فنی این پروژه بر پایه سه رکن اساسی از فناوری‌های روز جهان بنا شده است:</p>
-            <ul>
-                <li><strong>سیستم چهارمیله‌ای همزمان (Four-Bar Linkage):</strong> استفاده از اصول سینماتیک پیشرفته برای هدایت دقیق درب‌ها در امتداد ریل منحنی و تضمین حرکت نرم بدون قفل‌شدگی مکانیکی.</li>
-                <li><strong>پلیمرهای مهندسی پیشرفته (POM):</strong> استفاده از چرخ‌ها و قطعات غلتکی از جنس پلیمر خودروان‌کار POM جهت کاهش شدید اصطکاک، حذف کامل نیاز به روغن‌کاری مداوم و کنترل لرزش‌های ناگهانی سیستم.</li>
-                <li><strong>توزیع بهینه جرم و طراحی ماژولار:</strong> کاهش استفاده از قطعات فولادی سنگین در بخش‌های غیرسازه‌ای و جایگزینی آن با آلومینیوم آنودایز شده جهت کاهش گشتاور وارده بر اتصالات دیواره کابینت و افزایش طول عمر کل مکانیزم.</li>
-            </ul>
+            <section>
+                <h2>۲. مبانی فنی و الهامات بین‌المللی مکانیزم</h2>
+                <p>طراحی دستاورد فنی این پروژه بر پایه سه رکن اساسی از فناوری‌های روز جهان بنا شده است:</p>
+                <ul>
+                    <li><strong>سیستم چهارمیله‌ای همزمان (Four-Bar Linkage):</strong> استفاده از اصول سینماتیک پیشرفته برای هدایت دقیق درب‌ها در امتداد ریل منحنی و تضمین حرکت نرم بدون قفل‌شدگی مکانیکی.</li>
+                    <li><strong>پلیمرهای مهندسی پیشرفته (POM):</strong> استفاده از چرخ‌ها و قطعات غلتکی از جنس پلیمر خودروان‌کار POM جهت کاهش شدید اصطکاک، حذف کامل نیاز به روغن‌کاری مداوم و کنترل لرزش‌های ناگهانی سیستم.</li>
+                    <li><strong>توزیع بهینه جرم و طراحی ماژولار:</strong> کاهش استفاده از قطعات فولادی سنگین در بخش‌های غیرسازه‌ای و جایگزینی آن با آلومینیوم آنودایز شده جهت کاهش گشتاور وارده بر اتصالات دیواره کابینت و افزایش طول عمر کل مکانیزم.</li>
+                </ul>
+            </section>
 
-            <h2>۳. کاربردهای اصلی سیستم لولای همزمان</h2>
-            <ul>
-                <li><strong>آشپزخانه‌های مینیاتوری و کم‌جا:</strong> بهینه‌سازی مسیر حرکت در مطبخ‌ها و کابینت‌های نزدیک به دیوارهای جانبی و حتی کابینت‌های در مجاورت سقف‌ها.</li>
-                <li><strong>کمدهای دیواری و کلوزت‌روم‌های مدرن:</strong> حذف مزاحمت درب‌های بزرگ کمد دیواری در اتاق‌خواب‌های کوچک.</li>
-                <li><strong>طراحی دکوراسیون پنهان (Hidden Spaces):</strong> پنهان‌سازی ایستگاه‌های لوازم خانگی (مانند قهوه‌ساز یا مایکروویو) درون کابینت به صورت کاملاً لوکس و یکدست.</li>
-            </ul>
+            <section>
+                <h2>۳. کاربردهای اصلی سیستم لولای همزمان</h2>
+                <ul>
+                    <li><strong>آشپزخانه‌های مینیاتوری و کم‌جا:</strong> بهینه‌سازی مسیر حرکت در مطبخ‌ها و کابینت‌های نزدیک به دیوارهای جانبی و حتی کابینت‌های در مجاورت سقف‌ها.</li>
+                    <li><strong>کمدهای دیواری و کلوزت‌روم‌های مدرن:</strong> حذف مزاحمت درب‌های بزرگ کمد دیواری در اتاق‌خواب‌های کوچک.</li>
+                    <li><strong>طراحی دکوراسیون پنهان (Hidden Spaces):</strong> پنهان‌سازی ایستگاه‌های لوازم خانگی (مانند قهوه‌ساز یا مایکروویو) درون کابینت به صورت کاملاً لوکس و یکدست.</li>
+                </ul>
+            </section>
 
-            <h2>۴. ارزیابی ریسک و نتیجه‌گیری توجیه فنی</h2>
-            <p>این محصول به عنوان یک «راهکار ارزش‌آفرین» (Engineering Solution) ارزیابی می‌شود. اگرچه به دلیل استفاده از قطعات ماشین‌کاری شده CNC و متریال درجه‌یک، هزینه بهای تمام‌شده اولیه برای نسخه MVP در مقایسه با یراق‌آلات فله‌ای بالاتر است، اما نبود نمونه مشابه استاندارد در بازار داخلی و پتانسیل بالای آن در پروژه‌های ساختمانی لوکس و Premium، توجیه اقتصادی طرح را کاملاً تضمین می‌کند.</p>
+            <section>
+                <h2>۴. ارزیابی ریسک و نتیجه‌گیری توجیه فنی</h2>
+                <p>This product is an "Engineering Solution". اگرچه به دلیل استفاده از قطعات ماشین‌کاری شده CNC و متریال درجه‌یک، هزینه بهای تمام‌شده اولیه برای نسخه MVP در مقایسه با یراق‌آلات فله‌ای بالاتر است، اما نبود نمونه مشابه استاندارد در بازار داخلی و پتانسیل بالای آن در پروژه‌های ساختمانی لوکس و Premium، توجیه اقتصادی طرح را کاملاً تضمین می‌کند.</p>
+            </section>
 
-            <a href="index.html" class="back-btn">← بازگشت به صفحه اصلی</a>
+            <div style="text-align: left;">
+                <a href="index.html" class="back-btn">← بازگشت به صفحه اصلی</a>
+            </div>
         </article>
     </div>
 
     <footer>
-        <p>© 1405 | بخش مستندات فنی پروژه لولای هوشمند همزمان</p>
+        <p>© 1405 | مستندات فنی پروژه لولای هوشمند همزمان | دانشگاه تهران</p>
     </footer>
 </body>
 </html>
