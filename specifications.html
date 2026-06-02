@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مشخصات فنی و ساختار محصول | MechHinge</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Vazirmatn', Tahoma, sans-serif;
+        }
+
+        :root {
+            --primary-color: #1e3a8a;
+            --secondary-color: #0d9488;
+            --dark-color: #1f2937;
+            --light-color: #f8fafc;
+            --white: #ffffff;
+        }
+
+        body {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.8;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 50px 0;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 20px 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .spec-paper {
+            background: var(--white);
+            padding: 50px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            margin-top: 30px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 2.2rem;
+            border-bottom: 3px solid #2563eb;
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .placeholder-box {
+            background: #f1f5f9;
+            border: 2px dashed #cbd5e1;
+            padding: 40px;
+            text-align: center;
+            border-radius: 8px;
+            color: #64748b;
+            font-size: 1.2rem;
+            margin-top: 30px;
+        }
+
+        .image-container {
+            margin: 35px 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .img-box {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 12px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .img-box img {
+            width: 100%;
+            height: auto;
+            max-height: 400px;
+            object-fit: contain;
+            border-radius: 6px;
+        }
+
+        .caption {
+            font-size: 0.85rem;
+            color: #6b7280;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 30px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            color: #94a3b8;
+            font-size: 0.85rem;
+            margin-top: 50px;
+            border-top: 1px solid #e2e8f0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container navbar">
+            <div class="logo">MechHinge <span>مشخصات فنی</span></div>
+            <nav>
+                <ul>
+                    <li><a href="index.html" style="color:white; text-decoration:none; font-weight:bold;">بازگشت به خانه</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <article class="spec-paper">
+            <h1>مستندات مشخصات فنی و اجزای مکانیکی</h1>
+
+            <div class="image-container">
+                <div class="img-box">
+                    <img src="exploded-view.png" alt="نمای انفجاری قطعات" onerror="this.src='https://via.placeholder.com/600x400?text=Exploded+View+Image';">
+                    <div class="caption">نمای انفجاری اجزا، اتصالات ریل و واگن‌های غلتکی (BOM)</div>
+                </div>
+            </div>
+
+            <div class="placeholder-box">
+                🛠️ <b>محل قرارگیری جداول مهندسی و تحلیل‌های مالی (BOM)</b><br>
+                <p style="font-size: 1rem; color: #94a3b8; margin-top: 10px;">متون، ابعاد سینماتیکی، جداول قیمت مواد اولیه و ریسک‌ها در فاز بعدی پس از ارسال شما کاملاً در این بخش چیده خواهند شد.</p>
+            </div>
+
+            <a href="index.html" class="back-btn">← بازگشت به صفحه اصلی</a>
+        </article>
+    </div>
+
+    <footer>
+        <p>© 1405 | بخش اطلاعات و مشخصات فنی مکانیزم لولای هوشمند</p>
+    </footer>
+</body>
+</html>
