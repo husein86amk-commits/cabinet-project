@@ -21,20 +21,58 @@
             --white: #ffffff;
         }
 
-        /* پس‌زمینه پویا و انیمیشنی متحرک */
+        /* پس‌زمینه پویا با انیمیشن موج ملایم در لایه‌های زیرین برای هماهنگی با کاتالوگ */
         body {
-            background: linear-gradient(-45deg, #f1f5f9, #e2e8f0, #e0f2fe, #f0fdfa);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
+            background: linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%);
             color: var(--dark-color);
             line-height: 1.8;
             min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
         }
 
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        /* --- ساختار و انیمیشن لایه‌های موج در پس‌زمینه --- */
+        .wave-bg-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* فرستادن به پشت تمام متن‌ها و المان‌ها */
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 200%;
+            height: 220px;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,60 C150,100 350,20 500,60 C650,100 850,20 1000,60 C1150,100 1300,20 1200,60 L1200,120 L0,120 Z" fill="rgba(13, 148, 136, 0.06)"/></svg>');
+            background-size: 50% 100%;
+            animation: move-wave 25s linear infinite;
+        }
+
+        .wave.wave2 {
+            bottom: 10px;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,60 C150,100 350,20 500,60 C650,100 850,20 1000,60 C1150,100 1300,20 1200,60 L1200,120 L0,120 Z" fill="rgba(30, 58, 138, 0.04)"/></svg>');
+            background-size: 50% 100%;
+            opacity: 0.7;
+            animation: move-wave 18s linear infinite reverse; /* حرکت معکوس برای حس طبیعی‌تر */
+        }
+
+        .wave.wave3 {
+            bottom: 20px;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,60 C150,100 350,20 500,60 C650,100 850,20 1000,60 C1150,100 1300,20 1200,60 L1200,120 L0,120 Z" fill="rgba(13, 148, 136, 0.03)"/></svg>');
+            background-size: 50% 100%;
+            opacity: 0.5;
+            animation: move-wave 12s linear infinite;
+        }
+
+        @keyframes move-wave {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
 
         .container {
@@ -72,17 +110,22 @@
             font-weight: 400;
         }
 
-        /* افکت شیشه‌ای مدرن برای بدنه اطلاعات فنی */
+        /* ارتقای افکت شیشه‌ای مدرن (Glassmorphism) برای بدنه اطلاعات فنی */
         .spec-paper {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
             padding: 50px;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: 24px;
+            box-shadow: 0 20px 50px rgba(15, 23, 42, 0.06), inset 0 0 0 1px rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.5);
             margin-top: 30px;
             animation: fadeInUp 0.8s ease-out;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .spec-paper:hover {
+            box-shadow: 0 30px 60px rgba(15, 23, 42, 0.1);
         }
 
         @keyframes fadeInUp {
@@ -143,7 +186,6 @@
             list-style: none;
         }
 
-        /* افکت لیست‌ها */
         li {
             font-size: 1.05rem;
             color: #374151;
@@ -167,7 +209,6 @@
             top: 1px;
         }
 
-        /* استایل اختصاصی برای جایگذاری و نمایش جذاب عکس مهندسی جدید شما */
         .image-container {
             margin: 30px 0 40px 0;
             display: flex;
@@ -175,12 +216,13 @@
             align-items: center;
         }
 
+        /* باکس تصویر تعاملی و شیشه‌ای متمایز */
         .img-wrapper {
-            background: #ffffff;
+            background: rgba(255, 255, 255, 0.9);
             border: 1px solid rgba(226, 232, 240, 0.8);
             border-radius: 16px;
             padding: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
             width: 100%;
             max-width: 750px;
             transition: transform 0.4s ease, box-shadow 0.4s ease;
@@ -188,7 +230,7 @@
 
         .img-wrapper:hover {
             transform: scale(1.015);
-            box-shadow: 0 20px 40px rgba(37, 99, 235, 0.15);
+            box-shadow: 0 20px 40px rgba(37, 99, 235, 0.12);
         }
 
         .img-wrapper img {
@@ -198,7 +240,6 @@
             display: block;
         }
 
-        /* تایتل چسبیده زیر عکس طبق دستور شما */
         .img-title {
             font-size: 0.95rem;
             color: var(--primary-color);
@@ -256,6 +297,12 @@
 </head>
 <body>
 
+    <div class="wave-bg-container">
+        <div class="wave wave1"></div>
+        <div class="wave wave2"></div>
+        <div class="wave wave3"></div>
+    </div>
+
     <header>
         <div class="container navbar">
             <div class="logo">MechHinge <span>اطلاعات فنی</span></div>
@@ -271,7 +318,7 @@
 
             <div class="image-container">
                 <div class="img-wrapper">
-                    <img src="technical-diagram.png" alt="مستندات ساختاری و مهندسی قطعات لولای هوشمند">
+                    <img src="technical-diagram.png" alt="مستندات ساختاری و مهندسی قطعات لولای هوشمند" onerror="this.src='https://via.placeholder.com/750x450?text=MechHinge+Technical+Diagram';">
                 </div>
                 <div class="img-title">(تصویری از اجزا و قطعات به کار رفته در محصول)</div>
             </div>
@@ -303,7 +350,7 @@
             <section>
                 <h2>۳. نحوه دسترسی و تهیه محصول</h2>
                 <p><b>صلاحیت تجاری و فرآیند سفارش‌دهی:</b><br>
-                پروژه طراحی و توسعه لولای هوشمند همزمان در حال حاضر در فاز ارزیابی نمونه اولیه (MVP) و بومی‌سازی صنعتی در دانشکده مهندسی مکانیک دانشگاه تهران قرار دارد. صنایع کابینت‌سازی و سرمایه‌گذاران محترم جهت کسب اطلاعات فنی بیشتر، دریافت نقشه‌های سه‌بعدی متناسب با ابعاد سفارشی، یا هماهنگی برای تولید انبوه می‌توانند مستقیماً با مدیریت محصول تماس حاصل فرمایند.</p>
+                پروژه طراحی و توسعه لولای هوشمند همزمان در حال حاضر در فاز ارزیابی نمونه اولیه (MVP) و بومی‌سازی صنعتی در دانشکده مهندسی مکانیک دانشگاه تهران قرار دارد. صنایع کابینت‌سازی و سرمایه‌گذاران محترم جهت کسب اطلاعات فنی بیشتر, دریافت نقشه‌های سه‌بعدی متناسب با ابعاد سفارشی، یا هماهنگی برای تولید انبوه می‌توانند مستقیماً با مدیریت محصول تماس حاصل فرمایند.</p>
                 <p>جهت برقراری ارتباط و ثبت سفارش، به بخش اطلاعات تماس بهرام جدید بنیاد (Product Manager) در صفحه اصلی مراجعه فرمایید یا از طریق دکمه زیر به صورت مستقیم به کارت ویزیت ایشان منتقل شوید:</p>
                 
                 <a href="index.html#team" class="btn-redirect">ارتباط با مدیریت محصول (بهرام جدید بنیاد)</a>
