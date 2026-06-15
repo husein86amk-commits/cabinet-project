@@ -204,7 +204,7 @@
             right: 0;
             color: var(--secondary-color);
             font-size: 0.9rem;
-        }
+         }
 
         .image-container {
             margin: 40px 0;
@@ -245,9 +245,18 @@
             font-weight: bold;
         }
 
+        /* استایل کانتینر دکمه‌های پایانی برای ایجاد چیدمان دوطرفه متوازن */
+        .action-container {
+            margin-top: 35px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
         .back-btn {
             display: inline-block;
-            margin-top: 20px;
             background: linear-gradient(135deg, var(--primary-color) 0%, #2563eb 100%);
             color: var(--white);
             padding: 12px 28px;
@@ -262,6 +271,25 @@
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
             background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+        }
+
+        /* دکمه اختصاصی و مدرن دانلود کاتالوگ با استایل سازگار و جلوه تعاملی مهندسی */
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--secondary-color) 0%, #2dd4bf 100%);
+            color: var(--white);
+            padding: 12px 28px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            box-shadow: 0 4px 14px rgba(13, 148, 136, 0.25);
+            transition: all 0.3s;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(13, 148, 136, 0.4);
+            background: linear-gradient(135deg, #0f766e 0%, #0d9488 100%);
         }
 
         footer {
@@ -311,7 +339,7 @@
                 <p>طراحی دستاورد فنی این پروژه بر پایه سه رکن اساسی از فناوری‌های روز جهان بنا شده است:</p>
                 <ul>
                     <li><strong>سیستم چهارمیله‌ای همزمان (Four-Bar Linkage):</strong> استفاده از اصول سینماتیک پیشرفته برای هدایت دقیق درب‌ها در امتداد ریل منحنی و تضمین حرکت نرم بدون قفل‌شدگی مکانیکی.</li>
-                    <li><strong>پلیمرهای مهندسی پیشرفته (POM):</strong> استفاده از چرخ‌ها و قطعات غلتکی از جنس پلیمر خودروان‌کار POM جهت کاهش شدید اصطکاک، حذف کامل نیاز به روغن‌کاری مداوم و کنترل لرزش‌های ناگهانی سیستم.</li>
+                    <li><strong>پلیمرهای مهندسی پیشرفته (POM):</strong> استفاده از چرخ‌ها و قطعات غلتکی از جنس پلیمر خودروان‌کار POM جهت کاهش شدید اصطکاک, حذف کامل نیاز به روغن‌کاری مداوم و کنترل لرزش‌های ناگهانی سیستم.</li>
                     <li><strong>توزیع بهینه جرم و طراحی ماژولار:</strong> کاهش استفاده از قطعات فولادی سنگین در بخش‌های غیرسازه‌ای و جایگزینی آن با آلومینیوم آنودایز شده جهت کاهش گشتاور وارده بر اتصالات دیواره کابینت و افزایش طول عمر کل مکانیزم.</li>
                 </ul>
                 <p>نحوه کار کرد محصول هم به این صورت است که با هل دادن درب به سمت داخل، درب شروع به عقب رفتن و قرار گرفتن در بخش مستطیلی تعبیه شده در بالای کابینت می کند. همزمان با وارد شدن این نیرو بلبرینگ ها روی ریلی که تعبیه شده شروع به حرکت می کنند و لولای بالای دمپر نیز بسته می شود، خود دمپر هم نقش نرم کننده حرکت و کنترل کننده حرکت درب را دارد تا زمانی که درب کاملا بسته شود.(مطابق تصویر)</p>
@@ -332,8 +360,13 @@
                 <p>حتی از برنامه های آینده می توان به گسترش کاربرد این نوع لولا در سایر صنایع و سازه ها اشاره کرد. پس گذراندن موفقیت توسط این طرح به راحتی میتوان به تجاری سازی گسترده آن فکر کرد.</p>
             </section>
 
-            <div style="text-align: left;">
-                <a href="index.html" class="back-btn">← بازگشت به صفحه اصلی</a>
+            <div class="action-container">
+                <div>
+                    <a href="product-catalog.pdf" download="MechHinge-Catalog.pdf" class="download-btn">📥 دانلود کاتالوگ محصول</a>
+                </div>
+                <div>
+                    <a href="index.html" class="back-btn">← بازگشت به صفحه اصلی</a>
+                </div>
             </div>
         </article>
     </div>
